@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/07/06 20:11:18 by pepe             ###   ########.fr        #
+#    Updated: 2023/07/06 23:48:59 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ INC =						\
 
 OBJS = $(SRCS:%.cpp=objs/%.o)
 
-CXX = g++
+CXX = c++
 
 CXXFLAGS =	-Wall -Wextra -Werror
 CXXFLAGS +=	-std=c++98

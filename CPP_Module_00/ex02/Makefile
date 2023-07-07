@@ -6,25 +6,24 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/07/07 04:12:59 by pepe             ###   ########.fr        #
+#    Updated: 2023/07/06 23:49:08 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
-SRCS = 							\
-		srcs/main.cpp			\
-		srcs/AddContact.cpp		\
+SRCS = 						\
+		srcs/main.cpp		\
 
-INC =							\
-		inc/Contact.cpp			\
-		inc/PhoneBook.cpp		\
+INC =						\
+		inc/Contact.cpp		\
+		inc/PhoneBook.cpp	\
 
 OBJS = $(SRCS:%.cpp=objs/%.o)
 
 CXX = c++
 
-CXXFLAGS =	-Wall -Wextra -Werror -fsanitize=address -g3
+CXXFLAGS =	-Wall -Wextra -Werror
 CXXFLAGS +=	-std=c++98
 CXXFLAGS +=	-I inc
 
