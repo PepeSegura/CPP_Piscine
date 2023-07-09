@@ -6,15 +6,15 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 01:37:54 by pepe              #+#    #+#             */
-/*   Updated: 2023/07/09 02:56:44 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/09 03:04:16 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-void	Contact::set_data(int id, std::string input)
+void	Contact::set_data(int _id, std::string input)
 {
-    data[id] = input;
+    data[_id] = input;
 }
 
 void    Contact::print_data()

@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 23:33:05 by pepe              #+#    #+#             */
-/*   Updated: 2023/07/09 01:42:45 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/09 03:04:16 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ class Contact
 	
 	public:
 		void	print_data();
-		void	set_data(int id, std::string input);
+		void	set_data(int _id, std::string input);
 };

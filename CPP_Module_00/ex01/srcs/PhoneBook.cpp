@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 23:02:26 by pepe              #+#    #+#             */
-/*   Updated: 2023/07/09 02:58:53 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/09 03:04:50 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 PhoneBook::PhoneBook()
 {
-	id = 0;
+	_id = 0;
 }
 
 PhoneBook::~PhoneBook() 
 {
 }
 
-int	PhoneBook::str_is_digit(const std::string& phone)
+int	PhoneBook::_str_is_digit(const std::string& phone)
 {
 	std::string::const_iterator i;
 	for (i = phone.begin(); i != phone.end(); ++i)
@@ -31,17 +31,17 @@ int	PhoneBook::str_is_digit(const std::string& phone)
 	return (1);
 }
 
-int	PhoneBook::check_phone(std::string input)
+int	PhoneBook::_check_phone(std::string input)
 {
-	if (input.length() != 9 || !str_is_digit(input))
+	if (input.length() != 9 || !_str_is_digit(input))
 		return (1);
 	return (0);
 }
 
-void PhoneBook::add_phone()
+void PhoneBook::_add_phone()
 {
 	std::string input;
-	Contact *aux = &agenda[id % 8];
+	Contact *aux = &_agenda[_id % 8];
 
 	while (true)
 	{
@@ -49,10 +49,9 @@ void PhoneBook::add_phone()
 		std::cin >> input;
 		if (std::cin.eof())
 			exit(1);
-		if (check_phone(input) == 0)
+		if (_check_phone(input) == 0)
 		{
 			aux->set_data(3, input);
-			// agenda[id % 8].data[3] = input;
 			break ;
 		}
 		std::cout << "Not a valid phone. Try with 9 digits..." << std::endl;
@@ -63,7 +62,7 @@ void PhoneBook::add_contact()
 {
 	std::string input;
 	std::string text[] = { "name", "last_name", "nickname", "phone number", "secret" };
-	Contact *aux = &agenda[id % 8];
+	Contact *aux = &_agenda[_id % 8];
 
 	for (int i = 0; i < 3; i++)
 	{
@@ -73,14 +72,14 @@ void PhoneBook::add_contact()
 			exit(1);
 		aux->set_data(i, input);
 	}
-	add_phone();
+	_add_phone();
 	std::cout << "Add secret > ";
 	std::cin >> input;
 	if (std::cin.eof())
 		exit(1);
 	aux->set_data(4, input);
-	std::cout << "New contact added, with id [" << id << "]" << std::endl;
-	id++;
+	std::cout << "New contact added, with _id [" << _id << "]" << std::endl;
+	_id++;
 }
 
 #include <sstream>
@@ -95,10 +94,10 @@ void PhoneBook::search_and_print_contact()
 	while (true)
 	{
 		std::cin >> input;
-		if (input.length() == 1 && str_is_digit(input))
+		if (input.length() == 1 && _str_is_digit(input))
 			break ;
 		std::cout << "Write a valid index." << std::endl;
 	}
-	aux = &agenda[atoi(input.c_str())];
+	aux = &_agenda[atoi(input.c_str())];
 	aux->print_data();
 }
