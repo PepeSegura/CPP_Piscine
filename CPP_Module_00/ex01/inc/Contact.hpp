@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 23:33:05 by pepe              #+#    #+#             */
-/*   Updated: 2023/07/07 04:13:09 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/09 01:42:45 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,18 @@
 # include <iostream>
 # include <cstdlib>
 
-# define NAME       0
-# define LAST_NAME  1
-# define NICK       2
-# define SECRET     3
-# define PHONE      4
+// NAME       0
+// LAST_NAME  1
+// NICK       2
+// SECRET     3
+// PHONE      4
 
 class Contact
 {
-	public:
+	private:
 		std::string     data[5];
+	
+	public:
+		void	print_data();
+		void	set_data(int id, std::string input);
 };
