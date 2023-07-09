@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 23:02:26 by pepe              #+#    #+#             */
-/*   Updated: 2023/07/09 03:04:50 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/09 15:20:37 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int	PhoneBook::_str_is_digit(const std::string& phone)
 	return (1);
 }
 
-int	PhoneBook::_check_phone(std::string input)
-{
-	if (input.length() != 9 || !_str_is_digit(input))
-		return (1);
-	return (0);
-}
+// int	PhoneBook::_check_phone(std::string input)
+// {
+// 	if (input.length() != 9 || !_str_is_digit(input))
+// 		return (1);
+// 	return (0);
+// }
 
 void PhoneBook::_add_phone()
 {
@@ -49,7 +49,7 @@ void PhoneBook::_add_phone()
 		std::cin >> input;
 		if (std::cin.eof())
 			exit(1);
-		if (_check_phone(input) == 0)
+		if (input.length() == 9 && _str_is_digit(input))
 		{
 			aux->set_data(3, input);
 			break ;
@@ -84,13 +84,84 @@ void PhoneBook::add_contact()
 
 #include <sstream>
 
+#include <iostream>
+#include <iomanip>
+
+int	set_width(std::string text)
+{
+	return (text.length() > 9 ? 9 : text.length());
+}
+
+void grid_printHeader(void)
+{
+	std::cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|" << std::endl;
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
+}
+
+void grid_printSpaces(int a)
+{
+	while (a)
+	{
+		std::cout << " ";
+		a--;
+	}
+}
+
+void grid_printItem(std::string item)
+{
+	int len;
+
+	len = item.length();
+	if (len > 10)
+	{
+		std::cout << item.substr(0, 9) << ".|";
+	}
+	else 
+	{
+		if (len < 10)
+			grid_printSpaces (10 - len);
+		std::cout << item << "|";
+	}
+}
+
+void PhoneBook::_print_all_contacts()
+{
+	// int columnWidth = 10;
+
+	grid_printHeader();
+
+	std::string id = "0";
+    std::string firstName = "1234567890";
+    std::string lastName = "Doelandiachachi";
+    std::string nickname = "JD";
+
+	// Contact         *aux;
+
+	for (int i = 0; i < _id; i++)
+	{
+		std::cout << "|";
+		grid_printItem(id);
+		grid_printItem(firstName);
+		grid_printItem(lastName);
+		grid_printItem(nickname);
+		std::cout << std::endl;
+	}
+	
+	// Contact         *aux;
+
+	// for (int i = 0; i < _id; i++)
+	// {
+	// 	aux = &_agenda[i];
+	// 	aux->print_data();
+	// }
+}
+
 void PhoneBook::search_and_print_contact()
 {
 	std::string     input;
 	Contact         *aux;
 
-	/*PRINT_ALL: Private del Phonebook, que imprime la tabla 
-	con todos los contactos*/
+	_print_all_contacts();
 	while (true)
 	{
 		std::cin >> input;

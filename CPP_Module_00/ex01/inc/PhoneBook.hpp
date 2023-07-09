@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 23:32:28 by pepe              #+#    #+#             */
-/*   Updated: 2023/07/09 03:04:16 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/09 10:53:42 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class PhoneBook
 
 		int     _id;
 		void	_add_phone();
+		void	_print_all_contacts();
 		int		_check_phone(std::string input);
 		int		_str_is_digit(const std::string& phone);
 };
