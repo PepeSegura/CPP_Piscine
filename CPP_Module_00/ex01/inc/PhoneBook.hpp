@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 23:32:28 by pepe              #+#    #+#             */
-/*   Updated: 2023/07/09 10:53:42 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/10 23:27:13 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class PhoneBook
 
 		void	add_contact();
 		void	search_and_print_contact();
+		void	print_error(std::string error);
 
 	private:
 		Contact _agenda[8];

@@ -3,15 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 23:02:26 by pepe              #+#    #+#             */
-/*   Updated: 2023/07/09 15:20:37 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/10 23:27:32 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <string>
+#include <sstream>
+#include <iostream>
+#include <iomanip>
+
+#define ERROR_EOF "\033[0;31mError: EOF detected.\033[0m"
 
 PhoneBook::PhoneBook()
 {
@@ -20,6 +25,12 @@ PhoneBook::PhoneBook()
 
 PhoneBook::~PhoneBook() 
 {
+}
+
+void	PhoneBook::print_error(std::string error)
+{
+	std::cout << error << std::endl;
+	exit(0);
 }
 
 int	PhoneBook::_str_is_digit(const std::string& phone)
@@ -31,13 +42,6 @@ int	PhoneBook::_str_is_digit(const std::string& phone)
 	return (1);
 }
 
-// int	PhoneBook::_check_phone(std::string input)
-// {
-// 	if (input.length() != 9 || !_str_is_digit(input))
-// 		return (1);
-// 	return (0);
-// }
-
 void PhoneBook::_add_phone()
 {
 	std::string input;
@@ -46,9 +50,9 @@ void PhoneBook::_add_phone()
 	while (true)
 	{
 		std::cout << "Add phone number > ";
-		std::cin >> input;
+		std::getline(std::cin, input);
 		if (std::cin.eof())
-			exit(1);
+			print_error(ERROR_EOF);
 		if (input.length() == 9 && _str_is_digit(input))
 		{
 			aux->set_data(3, input);
@@ -67,25 +71,20 @@ void PhoneBook::add_contact()
 	for (int i = 0; i < 3; i++)
 	{
 		std::cout << "Add " << text[i] << " > ";
-		std::cin >> input;
+		std::getline(std::cin, input);
 		if (std::cin.eof())
-			exit(1);
+			print_error(ERROR_EOF);
 		aux->set_data(i, input);
 	}
 	_add_phone();
 	std::cout << "Add secret > ";
-	std::cin >> input;
+	std::getline(std::cin, input);
 	if (std::cin.eof())
-		exit(1);
+		print_error(ERROR_EOF);
 	aux->set_data(4, input);
 	std::cout << "New contact added, with _id [" << _id << "]" << std::endl;
 	_id++;
 }
-
-#include <sstream>
-
-#include <iostream>
-#include <iomanip>
 
 int	set_width(std::string text)
 {
@@ -126,34 +125,31 @@ void grid_printItem(std::string item)
 
 void PhoneBook::_print_all_contacts()
 {
-	// int columnWidth = 10;
+	Contact         *aux;
+	int				limit;
 
+	limit = (_id <= 8) ? _id : 8;
 	grid_printHeader();
-
-	std::string id = "0";
-    std::string firstName = "1234567890";
-    std::string lastName = "Doelandiachachi";
-    std::string nickname = "JD";
-
-	// Contact         *aux;
-
-	for (int i = 0; i < _id; i++)
+	for (int i = 0; i < limit; i++)
 	{
 		std::cout << "|";
-		grid_printItem(id);
-		grid_printItem(firstName);
-		grid_printItem(lastName);
-		grid_printItem(nickname);
+		aux = &_agenda[i % 8];
+		grid_printItem(std::to_string(i % 8));
+		grid_printItem(aux->get_data(0));
+		grid_printItem(aux->get_data(1));
+		grid_printItem(aux->get_data(2));
 		std::cout << std::endl;
 	}
-	
-	// Contact         *aux;
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
+	std::cout << "Choose an index to get all the contact information." << std::endl;
+}
 
-	// for (int i = 0; i < _id; i++)
-	// {
-	// 	aux = &_agenda[i];
-	// 	aux->print_data();
-	// }
+int	_index_in_range(std::string input)
+{
+	int	index;
+
+	index = atoi(input.c_str());
+	return (index >= 0 && index < 8);
 }
 
 void PhoneBook::search_and_print_contact()
@@ -161,13 +157,16 @@ void PhoneBook::search_and_print_contact()
 	std::string     input;
 	Contact         *aux;
 
+	system("clear");
 	_print_all_contacts();
 	while (true)
 	{
-		std::cin >> input;
-		if (input.length() == 1 && _str_is_digit(input))
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			print_error(ERROR_EOF);
+		if (input.length() == 1 && _str_is_digit(input) && _index_in_range(input))
 			break ;
-		std::cout << "Write a valid index." << std::endl;
+		std::cout << "Choose an index between 0 and 7." << std::endl;
 	}
 	aux = &_agenda[atoi(input.c_str())];
 	aux->print_data();

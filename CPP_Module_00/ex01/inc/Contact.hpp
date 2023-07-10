@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 23:33:05 by pepe              #+#    #+#             */
-/*   Updated: 2023/07/09 03:04:16 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/10 17:27:41 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Contact
 		std::string     data[5];
 	
 	public:
-		void	print_data();
-		void	set_data(int _id, std::string input);
+		void		print_data();
+		void		set_data(int _id, std::string input);
+		std::string	get_data(int _id);
 };
