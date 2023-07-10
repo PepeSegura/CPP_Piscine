@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
+#    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/07/09 02:35:33 by pepe             ###   ########.fr        #
+#    Updated: 2023/07/11 00:02:33 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ DEPS = $(OBJS:%.o=%.d)
 
 CXX = c++
 
-CXXFLAGS =	-Wall -Wextra -Werror -fsanitize=address -g3
+CXXFLAGS =	-Wall -Wextra -Werror #-fsanitize=address -g3
 CXXFLAGS +=	-std=c++98
 CXXFLAGS +=	-I inc
 CPPFLAGS = -MMD

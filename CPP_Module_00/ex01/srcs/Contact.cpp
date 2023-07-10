@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 01:37:54 by pepe              #+#    #+#             */
-/*   Updated: 2023/07/10 23:24:28 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/10 23:58:06 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void    Contact::print_data()
     for (int i = 0; i < 5; i++)
     {
 		if (data[i].length())
-        	std::cout << text[i] << ": "<< data[i] << std::endl;
+        	std::cout << "\e[0;36m" << text[i] << ": "<< "\e[0;35m" << data[i] << std::endl;
     }
 }
