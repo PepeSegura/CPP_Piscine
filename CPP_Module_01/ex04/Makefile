@@ -6,17 +6,15 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/07/11 20:08:02 by psegura-         ###   ########.fr        #
+#    Updated: 2023/07/11 20:11:52 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = unnecessaryViolence
+NAME = sedWasTooEasy
 
 SRCS = 							\
 		srcs/main.cpp			\
-		srcs/Weapon.cpp			\
-		srcs/HumanA.cpp			\
-		srcs/HumanB.cpp			\
+
 
 OBJS = $(SRCS:%.cpp=objs/%.o)
 DEPS = $(OBJS:%.o=%.d)

@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 17:59:54 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/11 18:10:00 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/11 18:56:35 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class Weapon
 {
 	public:
-		Weapon();
+		Weapon(std::string type);
 		~Weapon();
 		const std::string&	getType(void);
 		void				setType(std::string type);

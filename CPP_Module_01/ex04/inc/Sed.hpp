@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 18:02:16 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/11 19:58:02 by psegura-         ###   ########.fr       */
+/*   Created: 2023/07/11 21:08:12 by psegura-          #+#    #+#             */
+/*   Updated: 2023/07/11 21:25:36 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-# include "Weapon.hpp"
+# include <iostream>
+# include <fstream>
+# include <string>
 
-class HumanB
+class Args
 {
 	public:
-		HumanB(const std::string name);
-		~HumanB();
-		void	attack();
-		void	setWeapon(Weapon& weapon);
-
-	private:
-		std::string	name;
-		Weapon*		weapon;
+		std::string inFileName;
+		std::string	outFileName;
+		std::string	haystack;
+		std::string	needle;
 };
