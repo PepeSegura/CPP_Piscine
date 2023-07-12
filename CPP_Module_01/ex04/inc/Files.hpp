@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sed.hpp                                            :+:      :+:    :+:   */
+/*   Files.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 21:08:12 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/12 13:06:51 by pepe             ###   ########.fr       */
+/*   Created: 2023/07/12 13:06:40 by pepe              #+#    #+#             */
+/*   Updated: 2023/07/12 14:14:29 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-# include <iostream>
-# include <fstream>
-# include <string>
-# include <stdlib.h>
+# include "Sed.hpp"
 
-# define INFILENAME		0
-# define OUTFILENAME	1
-# define HAYSTACK 		2
-# define NEEDLE			3
-
-void	print_error(std::string error);
-
-class Args
+class Files
 {
 	public:
-		Args(int argc, char **argv);
-		~Args();
-		std::string get_data(int id);
+		Files(const std:: string& inFileName, const std:: string& outFileName);
+		~Files();
+        std::ifstream& get_file_in(void);
+        std::ofstream& get_file_out(void);
 
 	private:
-		std::string data[4];
+		std::ifstream	inputFile;
+		std::ofstream	outputFile;
 };

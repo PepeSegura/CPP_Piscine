@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
+#    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/07/11 20:11:52 by psegura-         ###   ########.fr        #
+#    Updated: 2023/07/12 13:53:00 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@ NAME = sedWasTooEasy
 
 SRCS = 							\
 		srcs/main.cpp			\
+		srcs/Sed.cpp			\
+		srcs/Files.cpp			\
 
 
 OBJS = $(SRCS:%.cpp=objs/%.o)

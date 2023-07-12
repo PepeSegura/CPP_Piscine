@@ -3,26 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 20:09:36 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/11 21:26:34 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/12 14:36:33 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
+#include "Files.hpp"
 
-std::string	replaceSubstring(const std::string& input, const std::string& search, const std::string& replace)
+std::string	replaceSubstring(const std::string& input, const std::string& haystack, const std::string& needle)
 {
     std::string result;
-    int searchLength = search.length();
+    int searchLength = haystack.length();
     int inputLength = input.length();
 
 	for (int i = 0; i < inputLength;)
 	{
-        if (input.substr(i, searchLength) == search)
+        if (input.substr(i, searchLength) == haystack)
 		{
-            result += replace;
+            result += needle;
             i += searchLength;
         }
 		else
@@ -31,40 +32,18 @@ std::string	replaceSubstring(const std::string& input, const std::string& search
     return (result);
 }
 
-void	print_error(std::string error)
-{
-	std::cout << "Error:\n\t" << error << std::endl;
-	exit(0);
-}
-
-void	check_args(int argc, char **argv)
-{
-	(void)argv;
-	if (argc != 4)
-		print_error("Not enough arguments.");
-		
-}
-
 int	main(int argc, char **argv)
 {
-	check_args(argc, argv);
-	std::string		line;
-	std::string		outFileName = argv[1];
-	std::ifstream	inputFile(argv[1]);
-	std::ofstream	outputFile(outFileName + ".replace");
+	Args		args(argc, argv);
+	Files		files(args.get_data(INFILENAME), args.get_data(OUTFILENAME));
+	std::string	line;
 
-	if (inputFile.is_open() == 0 || outputFile.is_open() == 0)
-		print_error("Cannot open the file.");
 	while (true)
 	{
-		std::getline(inputFile, line);
-		std::cout << line << std::endl;
-		if (outputFile.is_open())
-			outputFile << replaceSubstring(line, "pepe", "PACO") << std::endl;
-		if (inputFile.eof())
+		std::getline(files.get_file_in(), line);
+		files.get_file_out() << replaceSubstring(line, args.get_data(HAYSTACK), args.get_data(NEEDLE)) << std::endl;
+		if (files.get_file_in().eof())
 			break ;
 	}
-	inputFile.close();
-	outputFile.close();
 	return (0);
 }
