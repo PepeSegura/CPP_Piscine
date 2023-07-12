@@ -6,11 +6,11 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/07/12 18:33:22 by psegura-         ###   ########.fr        #
+#    Updated: 2023/07/12 18:38:23 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = harlV1
+NAME = harlFilter
 
 SRCS = 							\
 		srcs/main.cpp			\

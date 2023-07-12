@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Sed.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:58:55 by pepe              #+#    #+#             */
-/*   Updated: 2023/07/12 14:24:16 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/12 17:56:49 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ Args:: Args(int argc, char **argv)
 
 Args:: ~Args()
 {
-    // std::string text[] = { "inFileName", "outFileName", "haystack", "needle" };
-    // for (int i = 0; i < 4 ;i++)
-    // {
-    //     std::cout << text[i] << ": ["<< data[i] << "]" << std::endl;
-    // }
+    std::string text[] = { "inFileName", "outFileName", "haystack", "needle" };
+    for (int i = 0; i < 4 ;i++)
+    {
+        std::cout << text[i] << ": ["<< data[i] << "]" << std::endl;
+    }
 }
 
 std::string Args:: get_data(int id)
