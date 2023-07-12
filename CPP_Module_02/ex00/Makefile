@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
+#    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/07/12 19:07:23 by psegura-         ###   ########.fr        #
+#    Updated: 2023/07/13 01:32:30 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = newZombie
+NAME = firstOrthodoxClassV0
 
 SRCS = 							\
 		srcs/main.cpp			\
