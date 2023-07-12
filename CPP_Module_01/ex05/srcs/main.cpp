@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Files.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/12 13:06:40 by pepe              #+#    #+#             */
-/*   Updated: 2023/07/12 14:57:03 by pepe             ###   ########.fr       */
+/*   Created: 2023/07/12 14:39:35 by pepe              #+#    #+#             */
+/*   Updated: 2023/07/12 14:55:06 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Harl.hpp"
 
-# include "Sed.hpp"
-
-class Files
+int main(void)
 {
-	public:
-		Files(const std:: string& inFileName, const std:: string& outFileName);
-		~Files();
-        std::ifstream& get_file_in(void);
-        std::ofstream& get_file_out(void);
+    Harl complainer;
 
-	private:
-		std::ifstream	inputFile;
-		std::ofstream	outputFile;
-};
+    complainer.complain("debug");
+    return (0);
+}
