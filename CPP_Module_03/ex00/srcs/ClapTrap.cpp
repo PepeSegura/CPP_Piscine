@@ -1,0 +1,112 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
+/*   Updated: 2023/07/18 21:42:25 by psegura-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ClapTrap.hpp"
+
+ClapTrap:: ClapTrap()
+{
+    _name = "";
+    _hp = 10;
+    _ep = 10;
+    _dmg = 0;
+    std::cout << "ClapTrap has spawned." << std::endl;
+}
+
+ClapTrap:: ClapTrap(std::string name) : _name(name)
+{
+    std::cout << "ClapTrap "<< name << " has spawned." << std::endl;
+    _hp = 10;
+    _ep = 10;
+    _dmg = 0;
+}
+
+ClapTrap:: ClapTrap(const ClapTrap& f)
+{
+    std::cout << "Copy constructor called." << std::endl;
+    *this = f;
+}
+
+ClapTrap:: ~ClapTrap()
+{
+    std::cout << "Destructor called." << std::endl;
+}
+
+ClapTrap& ClapTrap:: operator=(const ClapTrap& f)
+{
+    std::cout << "Asignation operand called." << std::endl;
+    if (this != &f)
+    {
+        _name = f._name;
+        _hp = f._hp;
+        _ep = f._ep;
+        _dmg = f._dmg;
+    }
+    return (*this);
+}
+
+void	ClapTrap:: attack(const std::string& target)
+{
+    if (_hp > 0 && _ep > 0)
+    {
+        std::cout   << "ClapTrap: " << _name << " attacks " << target << " causing " << _dmg << " DMG!" << std::endl;
+        _ep--;
+    }
+    if (_hp <= 0)
+        std::cout   << "ClapTrap: " << _name << " is DEAD and can't attack anymore." << std::endl;
+    if (_ep <= 0)
+        std::cout   << "ClapTrap: " << _name << " is out of ENERGY and can't attack anymore." << std::endl;
+}
+
+void	ClapTrap:: takeDamage(unsigned int amount)
+{
+    if ((int)amount < 0)
+    {
+        std::cout << "Input error: please introduce a positive value." << std::endl;
+        return ;
+    }
+    if (_hp > 0)
+    {
+        std::cout   << "ClapTrap: " << _name << " took an amount of " << amount << " DMG and ";
+        _hp -= amount;
+        if (_hp > 0)
+            std::cout   << "now has " << _hp << " HP." << std::endl;
+        else
+        {
+            std::cout   << "DIED." << std::endl;
+            _hp = 0;
+            return ;
+        }
+    }
+    if (_hp <= 0)
+        std::cout   << "ClapTrap: " << _name << " is already DEAD, he can't take more DMG." << std::endl;
+}
+
+void	ClapTrap:: beRepaired(unsigned int amount)
+{
+    if ((int)amount < 0)
+    {
+        std::cout << "Input error: please introduce a positive value." << std::endl;
+        return ;
+    }
+    if (_ep <= 0)
+    {
+        std::cout   << "ClapTrap: " << _name << " is out of energy and can't be HEALED anymore." << std::endl;
+        return ;   
+    }
+	if (_hp > 0)
+		std::cout   << "ClapTrap: " << _name << " got HEALED by " << amount << " HP";
+	else
+		std::cout   << "ClapTrap: " << _name << " REVIVED with " << amount << " HP";
+	_hp += amount;
+    _ep--;
+	std::cout << " and now has " << _hp << " HP left." << std::endl;
+}
