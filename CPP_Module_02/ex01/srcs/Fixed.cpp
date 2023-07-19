@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/13 01:31:35 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/17 19:34:32 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ Fixed:: Fixed(const float float_nb)
     (void)float_nb;
 }
 
-int Fixed:: getRawBits(void) const
+int Fixed:: getRawBits(void)
+const
 {
     std::cout << "getRawBits member function called" << std::endl;
     return (this->fixed);
