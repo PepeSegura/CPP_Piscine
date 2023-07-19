@@ -6,18 +6,18 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/07/19 20:37:21 by psegura-         ###   ########.fr        #
+#    Updated: 2023/07/19 22:24:15 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = operators
+NAME = polymorphism
 
 SRCS = 							\
 		srcs/main.cpp			\
 		srcs/Animal.cpp			\
 		srcs/Dog.cpp			\
 		srcs/Cat.cpp			\
-		srcs/WrongAnimal.cpp	\
+
 
 OBJS = $(SRCS:%.cpp=objs/%.o)
 DEPS = $(OBJS:%.o=%.d)

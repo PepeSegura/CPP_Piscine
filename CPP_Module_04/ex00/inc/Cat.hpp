@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/19 20:29:50 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/19 22:00:36 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ class Cat : public Animal
         Cat(const Cat &f);
         ~Cat();
         Cat& operator=(const Cat &f);
-		void makeSound();
+		virtual void makeSound() const;
 };

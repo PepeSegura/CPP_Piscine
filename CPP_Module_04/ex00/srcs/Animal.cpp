@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/19 20:50:51 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/19 22:12:14 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 Animal:: Animal()
 {
-    std::cout << "Default constructor called." << std::endl;
+    std::cout << "Animal: Default constructor called." << std::endl;
+	_type = "Unsetted";
 }
 
-Animal:: Animal(std::string type)
+Animal:: Animal(std::string type) : _type(type)
 {
-	_type = type;
-    std::cout << "Default constructor called." << std::endl;
+    std::cout << "Animal with type setter constructor called." << std::endl;
 }
 
 Animal:: Animal(const Animal& f)
@@ -31,20 +31,23 @@ Animal:: Animal(const Animal& f)
 
 Animal:: ~Animal()
 {
-    std::cout << "Destructor called." << std::endl;
+    std::cout << "Animal: Destructor called." << std::endl;
 }
 
-std::string	Animal:: getType()
+Animal& Animal:: operator=(const Animal& f)
 {
-	return (this->_type);
+    std::cout << "Asignation operand called." << std::endl;
+    if (this != &f)
+		*this = f;
+    return (*this);
 }
 
-void	Animal:: makeSound()
+const std::string	Animal:: getType() const
 {
-	if (this->getType() != "Dog" && this->getType() != "Cat")
-		std::cout << "Tipical undefined animal sound... ⁇" << std::endl;
-	if (this->getType() == "Dog")
-		std::cout << "🐶 Typical Dog sound... 🐶" << std::endl;
-	if (this->getType() == "Cat")
-		std::cout << "🐈 Typical Cat sound... 🐈" << std::endl;
+	return (_type);
+}
+
+void	Animal:: makeSound() const
+{
+	std::cout << "Tipical undefined animal sound... ⁇" << std::endl;
 }

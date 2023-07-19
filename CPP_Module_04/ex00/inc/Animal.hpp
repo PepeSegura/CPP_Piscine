@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/19 20:52:14 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/19 21:49:01 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ class Animal
 		Animal(const std::string type);
         ~Animal();
         Animal&	operator=(const Animal &f);
-		const std::string	getType();
-		void				makeSound();
+		const	std::string	getType()	const;
+		virtual void		makeSound() const;
 
 	protected:
 		std::string	_type;
