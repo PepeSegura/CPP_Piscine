@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/19 22:12:34 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/20 16:27:43 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Dog:: Dog()
 	_type = "Dog";
 }
 
-Dog:: Dog(const Dog& f)
+Dog:: Dog(const Dog& f) : Animal(f)
 {
     std::cout << "Dog: Copy constructor called." << std::endl;
     *this = f;

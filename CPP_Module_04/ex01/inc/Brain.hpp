@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/20 17:10:20 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/20 18:31:09 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-# include <iostream>
+# include "Animal.hpp"
 
-class WrongAnimal
+class Brain
 {
     public:
-        WrongAnimal();
-        WrongAnimal(const WrongAnimal &f);
-        WrongAnimal(const std::string type);
-        virtual ~WrongAnimal();
-        WrongAnimal& operator=(const WrongAnimal &f);
-        const	std::string	getType()	const;
-		virtual void		makeSound() const;
+        Brain();
+        Brain(const Brain &f);
+        virtual ~Brain();
+        Brain& operator=(const Brain &f);
+        void            setIdea(int id, std::string idea);
+        std::string     getIdea(int id);
 
     protected:
-		std::string	_type;
-        
+        std::string ideas[100];
 };
+

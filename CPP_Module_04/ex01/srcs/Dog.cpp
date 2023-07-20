@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/20 16:27:57 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/20 18:26:12 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Dog.hpp"
 
-Cat:: Cat()
+Dog:: Dog()
 {
-    std::cout << "Cat: Default constructor called." << std::endl;
-	_type = "Cat";
+    std::cout << "Dog: Default constructor called." << std::endl;
+    brain = new Brain();
+	_type = "Dog";
 }
 
-Cat:: Cat(const Cat& f) : Animal(f)
+Dog:: Dog(const Dog& f) : Animal(f)
 {
-    std::cout << "Cat: Copy constructor called." << std::endl;
+    std::cout << "Dog: Copy constructor called." << std::endl;
+    brain = NULL;
     *this = f;
 }
 
-Cat:: ~Cat()
+Dog:: ~Dog()
 {
-    std::cout << "Cat: Destructor called." << std::endl;
+    std::cout << "Dog: Destructor called." << std::endl;
+    delete brain;
 }
 
-Cat& Cat:: operator=(const Cat& f)
+Dog& Dog:: operator=(const Dog& f)
 {
     std::cout << "Asignation operand called." << std::endl;
     if (this != &f)
@@ -37,7 +40,7 @@ Cat& Cat:: operator=(const Cat& f)
     return (*this);
 }
 
-void	Cat:: makeSound() const
+void	Dog:: makeSound() const
 {
-	std::cout << "🐈 Typical Cat sound... 🐈" << std::endl;
+	std::cout << "🐶 Typical Dog sound... 🐶" << std::endl;
 }
