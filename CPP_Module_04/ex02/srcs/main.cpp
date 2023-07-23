@@ -6,15 +6,13 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 12:02:13 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/23 15:51:10 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/23 15:52:53 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-
-# define ZOO_SIZE 10
 
 int	main(void)
 {
