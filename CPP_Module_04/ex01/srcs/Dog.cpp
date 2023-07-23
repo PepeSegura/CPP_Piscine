@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/21 14:00:03 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/23 14:16:44 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,32 @@ Dog:: ~Dog()
 
 Dog& Dog:: operator=(const Dog& f)
 {
-    if (printMessages)
+	if (printMessages)
 	{
-		std::cout << "Asignation operand called." << std::endl;
+    	std::cout << "Dog: Asignation operand called." << std::endl;
 	}
     if (this != &f)
-		*this = f;
+    {
+        Animal::operator=(f);
+        _type = f._type;
+        if (brain)
+            delete brain;
+        brain = new Brain(*f.brain);
+    }
     return (*this);
 }
 
 void	Dog:: makeSound() const
 {
 	std::cout << "🐶 Typical Dog sound... 🐶" << std::endl;
+}
+
+void Dog:: dogSetIdea(int id, const std::string& idea)
+{
+    brain->setIdea(id, idea);
+}
+
+std::string Dog:: dogGetIdea(int id)
+{
+    return (brain->getIdea(id));
 }

@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 12:02:13 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/21 14:13:39 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/23 14:45:58 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,37 +18,49 @@
 
 int	main(void)
 {
-	std::cout << "__MAIN_OBJECTS__" << std::endl;
-	Animal:: printMessages = false;
-
-	Animal* zoo[ZOO_SIZE];
-
-	for (int i = 0; i < ZOO_SIZE; i++)
 	{
-		if (i < ZOO_SIZE / 2)
-			zoo[i] = new Dog();
-		else
-			zoo[i] = new Cat();
-	}
-
-	for (int i = 0; i < ZOO_SIZE; i++)
-		zoo[i]->makeSound();
-	std::cout << std::endl;
-
-	for (int i = 0; i < ZOO_SIZE; i++)
-		delete zoo[i];
-
-	std::cout << "\n__TEST_IDEAS_&_DEEP_COPY__" << std::endl;
-	// Animal:: printMessages = true;
-	Cat missy;
-
-	missy.catSetIdea(0, "Maybe im a cat.");
-	std::cout << "\tMissy idea: " << missy.catGetIdea(0) << std::endl;
-
-	Cat copy(missy);
-	Cat cpy2;
+		std::cout << "__MAIN_OBJECTS__" << std::endl;
+		Animal:: printMessages = false;
 	
-	cpy2 = missy;
-	std::cout << "\tCopy idea: " << cpy2.catGetIdea(0) << std::endl;
+		Animal* zoo[ZOO_SIZE];
+	
+		for (int i = 0; i < ZOO_SIZE; i++)
+		{
+			if (i < ZOO_SIZE / 2)
+				zoo[i] = new Dog();
+			else
+				zoo[i] = new Cat();
+		}
+	
+		for (int i = 0; i < ZOO_SIZE; i++)
+			zoo[i]->makeSound();
+		std::cout << std::endl;
+	
+		for (int i = 0; i < ZOO_SIZE; i++)
+			delete zoo[i];
+	}
+	{
+		std::cout << "__TEST_IDEAS_&_DEEP_COPY__" << std::endl;
+		// Animal:: printMessages = true;
+		Cat missy;
+	
+		missy.catSetIdea(0, "Maybe im a cat.");
+		std::cout << "Missy idea: " << missy.catGetIdea(0) << std::endl;
+	
+		Cat copy(missy);
+		Cat cpy2;
+		
+		cpy2 = missy;
+		std::cout << "Copy idea: " << cpy2.catGetIdea(0) << std::endl;
+	}
+	{	
+		std::cout << "\n__SUBJECT_MAIN__" << std::endl;
+		Animal:: printMessages = true;
+		const Animal* j = new Dog();
+		const Animal* i = new Cat();
+	
+		delete j;
+		delete i;
+	}
 	return (0);
 }
