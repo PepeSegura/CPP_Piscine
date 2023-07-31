@@ -6,19 +6,21 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 12:02:13 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/20 17:22:19 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/31 17:56:08 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "WrongAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
-
+void leaks(void)
+{
+	system("leaks -q polymorphism");
+}
 int	main(void)
 {
+	atexit(leaks);
 	std::cout << "__MAIN_OBJECTS__" << std::endl;
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
@@ -41,12 +43,18 @@ int	main(void)
 	delete	i;
 
 	std::cout << "\n__WRONG_OBJECTS__" << std::endl;
-	const WrongAnimal* wrong = new WrongCat();
+	const WrongAnimal* wrongAnimal = new WrongAnimal();
+	const WrongAnimal* wrongCat = new WrongCat();
 
 	std::cout 	<< "\nObject type ->\t["
-				<< wrong->getType() << "] -> his sound is: -> ";
-				wrong->makeSound();
+				<< wrongAnimal->getType() << "] -> his sound is: -> ";
+				wrongAnimal->makeSound();
 				std::cout << std::endl;
-	delete	wrong;
+	std::cout 	<< "\nObject type ->\t["
+				<< wrongCat->getType() << "] -> his sound is: -> ";
+				wrongCat->makeSound();
+				std::cout << std::endl;
+	delete	wrongAnimal;
+	delete	wrongCat;
 	return (0);
 }

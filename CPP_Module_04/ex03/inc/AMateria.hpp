@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/24 13:32:56 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/31 14:41:46 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ class AMateria
         std::string const & getType() const;
 
         virtual AMateria* clone() const = 0;
-        virtual void use(ICharacter& target);
+        // virtual void use(ICharacter& target);
+
+		static bool         printMessages;		
 
     protected:
         std::string	_type;

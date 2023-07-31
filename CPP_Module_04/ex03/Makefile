@@ -6,27 +6,23 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/07/24 13:31:49 by psegura-         ###   ########.fr        #
+#    Updated: 2023/07/31 18:38:12 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = abstract
+NAME = interfaces
 
 SRCS = 							\
 		srcs/main.cpp			\
 		srcs/AMateria.cpp		\
-		srcs/Character.cpp		\
-		srcs/ICharacter.cpp		\
-		srcs/IMateriaSource.cpp	\
 		srcs/Ice.cpp			\
 		srcs/Cure.cpp			\
-
-
+		# srcs/Character.cpp	\
 
 OBJS = $(SRCS:%.cpp=objs/%.o)
 DEPS = $(OBJS:%.o=%.d)
 
-CXX = c++
+CXX = g++
 
 CXXFLAGS =	-Wall -Wextra -Werror -Wshadow  -g3 -fsanitize=address#,leak
 CXXFLAGS +=	-std=c++98

@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:45:23 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/23 15:36:09 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:16:02 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ Brain& Brain:: operator=(const Brain& f)
 {
 	if (AAnimal:: printMessages)
 	{
-    	std::cout << "Asignation operand called." << std::endl;
+    	std::cout << "Brain: Asignation operand called." << std::endl;
 	}
     if (this != &f)
     {

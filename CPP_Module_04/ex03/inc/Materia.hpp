@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Materia.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/31 16:59:15 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:46:57 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 # include <iostream>
+# include "IMateriaSource.hpp"
 
-class WrongAnimal
+class Materia
 {
     public:
-        WrongAnimal();
-        WrongAnimal(const WrongAnimal &f);
-        WrongAnimal(const std::string type);
-        virtual ~WrongAnimal();
-        WrongAnimal& operator=(const WrongAnimal &f);
-        const	std::string	getType()	const;
-		void		makeSound() const;
-
-    protected:
-		std::string	_type;
-        
+        Materia();
+        Materia(const Materia &f);
+        ~Materia();
+        Materia& operator=(const Materia &f);
 };

@@ -6,11 +6,10 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 12:02:13 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/23 14:45:58 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/31 18:20:26 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 
@@ -52,6 +51,18 @@ int	main(void)
 		
 		cpy2 = missy;
 		std::cout << "Copy idea: " << cpy2.catGetIdea(0) << std::endl;
+	}
+	{
+		std::cout << "\n__TEST_IDEAS_&_DEEP_COPY__V2__" << std::endl;
+		Animal:: printMessages = false;
+
+		Dog outside;
+
+		outside.dogSetIdea(0, "Idea to test deep copy.");
+		{
+			Dog inside = outside;
+			std::cout << inside.dogGetIdea(0) << std::endl;
+		}
 	}
 	{	
 		std::cout << "\n__SUBJECT_MAIN__" << std::endl;

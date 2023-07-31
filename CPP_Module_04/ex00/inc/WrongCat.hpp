@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/20 17:05:24 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/31 16:59:27 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ class WrongCat : public WrongAnimal
         WrongCat(const WrongCat &f);
         ~WrongCat();
         WrongCat& operator=(const WrongCat &f);
-		virtual void makeSound() const;
+		void makeSound() const;
 };
 
