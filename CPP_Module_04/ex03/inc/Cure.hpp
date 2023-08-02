@@ -6,13 +6,12 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/31 15:26:58 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/02 23:37:25 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-# include <iostream>
 # include "AMateria.hpp"
 
 class Cure : public AMateria
@@ -22,7 +21,7 @@ class Cure : public AMateria
         Cure(const Cure &f);
         ~Cure();
         Cure& operator=(const Cure &f);
-		virtual AMateria* clone() const;
 
+		virtual AMateria* clone() const;
 		virtual void use(ICharacter& target);
 };

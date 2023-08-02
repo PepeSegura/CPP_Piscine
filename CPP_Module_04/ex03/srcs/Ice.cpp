@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/31 15:22:15 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/03 00:22:47 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ Ice& Ice:: operator=(const Ice& f)
 AMateria* Ice:: clone() const
 {
 	AMateria *clone = new Ice;
-	std::cout << "clone" << std::endl;
 	return (clone);
 }
 

@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 16:14:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/31 14:12:29 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/03 00:09:41 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ AMateria:: AMateria()
 	{
 		std::cout << "AMateria: Default constructor called." << std::endl;
 	}
+    _type = "unsetted";
 }
 
 AMateria:: AMateria(std::string const & type) : _type(type)
@@ -60,5 +61,10 @@ AMateria&    AMateria:: operator=(const AMateria &f)
 
 std::string const & AMateria:: getType() const
 {
-    return (this->_type);
+    return (_type);
+}
+
+void AMateria::use(ICharacter& target)
+{
+	std::cout << "This will never be printed, right " << target.getName() << " ?" << std::endl;
 }

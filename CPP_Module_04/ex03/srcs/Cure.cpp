@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/31 15:28:23 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/02 23:20:06 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,10 @@ Cure& Cure:: operator=(const Cure& f)
 AMateria* Cure:: clone() const
 {
 	AMateria *clone = new Cure;
-	std::cout << "clone" << std::endl;
 	return (clone);
 }
 
 void Cure:: use(ICharacter& target)
 {
-	std::cout << "🏥 heals " << target.getName() << "’s wounds 🏥" << std::endl;
+	std::cout << "🏥 heals " << target.getName() << "'s wounds 🏥" << std::endl;
 }

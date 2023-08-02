@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/02 23:38:20 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/02 23:39:20 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-# include <iostream>
+# include "IMateriaSource.hpp"
 
-class AMateria;
-
-class ICharacter
+class MateriaSource : public IMateriaSource
 {
 	public:
-		virtual ~ICharacter() {}
-		virtual std::string const & getName() const = 0;
-		virtual void equip(AMateria* m) = 0;
-		virtual void unequip(int idx) = 0;
-		virtual void use(int idx, ICharacter& target) = 0;
+		MateriaSource();
+		MateriaSource(const MateriaSource &f);
+		~MateriaSource();
+		MateriaSource& operator=(const MateriaSource &f);
+
+		virtual void learnMateria(AMateria* type);
+		virtual AMateria* createMateria(std::string const &);
+
+	private:
+		AMateria *_materias[4];
 };

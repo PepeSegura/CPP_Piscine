@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/07/31 18:38:12 by psegura-         ###   ########.fr        #
+#    Updated: 2023/08/03 00:04:56 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,15 @@ SRCS = 							\
 		srcs/AMateria.cpp		\
 		srcs/Ice.cpp			\
 		srcs/Cure.cpp			\
-		# srcs/Character.cpp	\
+		srcs/Character.cpp		\
+		srcs/MateriaSource.cpp	\
 
 OBJS = $(SRCS:%.cpp=objs/%.o)
 DEPS = $(OBJS:%.o=%.d)
 
 CXX = g++
 
-CXXFLAGS =	-Wall -Wextra -Werror -Wshadow  -g3 -fsanitize=address#,leak
+CXXFLAGS =	-Wall -Wextra -Werror -Wshadow  -g3 -fsanitize=address,leak
 CXXFLAGS +=	-std=c++98
 CXXFLAGS +=	-I inc
 CPPFLAGS = -MMD
