@@ -6,12 +6,14 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 22:26:09 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/02 22:26:39 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/04 18:06:16 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#ifndef DEBUG
-# define DEBUG 0
-#endif
+# ifdef DEBUG
+#	define PRINT_DEBUG(a) std::cout << a << "\n";
+# else
+#	define PRINT_DEBUG(a)
+# endif

@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/03 00:22:47 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/04 18:31:41 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 Ice:: Ice() : AMateria("ice")
 {
-    std::cout << "Ice: Default constructor called." << std::endl;
+	PRINT_DEBUG("Ice: Default constructor called.");
 }
 
 Ice:: Ice(const Ice& f) : AMateria("ice")
 {
-    std::cout << "Ice: Copy constructor called." << std::endl;
+	PRINT_DEBUG("Ice: Copy constructor called.");
     *this = f;
 }
 
 Ice:: ~Ice()
 {
-    std::cout << "Ice: Destructor called." << std::endl;
+	PRINT_DEBUG("Ice: Destructor called.");
 }
 
 Ice& Ice:: operator=(const Ice& f)
 {
-    std::cout << "Ice: Asignation operand called." << std::endl;
+	PRINT_DEBUG("Ice: Asignation operand called.");
     if (this != &f)
 		*this = f;
     return (*this);

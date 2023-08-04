@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/02 23:59:52 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/04 18:28:49 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Character:: Character()
 {
-    std::cout << "Character: Default constructor called." << std::endl;
+	PRINT_DEBUG("Character: Default constructor called.");
     _name = "Unnamed";
     for (int i = 0; i < 4; i++)
         _inventory[i] = NULL;
@@ -22,25 +22,25 @@ Character:: Character()
 
 Character:: Character(std::string name) : _name(name)
 {
-    std::cout << "Character: Contructor with name setter called." << std::endl;
+	PRINT_DEBUG("Character: Contructor with name setter called.");
     for (int i = 0; i < 4; i++)
         _inventory[i] = NULL;
 }
 
 Character:: Character(const Character& f)
 {
-    std::cout << "Character: Copy constructor called." << std::endl;
+	PRINT_DEBUG("Character: Copy constructor called.");
     *this = f;
 }
 
 Character:: ~Character()
 {
-    std::cout << "Character: Destructor called." << std::endl;
+	PRINT_DEBUG("Character: Destructor called.");
 }
 
 Character& Character:: operator=(const Character& f)
 {
-    std::cout << "Character: Asignation operand called." << std::endl;
+	PRINT_DEBUG("Character: Asignation operand called.");
     _name = f.getName();
     for (int i = 0; i < 4; i++)
         _inventory[i] = f._inventory[i]->clone();

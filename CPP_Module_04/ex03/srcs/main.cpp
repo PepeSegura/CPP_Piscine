@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 15:59:29 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/03 00:34:04 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/04 18:24:37 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,17 @@
 #include "Cure.hpp"
 #include "Character.hpp"
 #include "MateriaSource.hpp"
+#include <stdlib.h>
+
+
+void fleaks(void)
+{
+	system("leaks -q interfaces");
+}
 
 int main(void)
 {
+	// atexit(&fleaks);
 	/*__SUBJECT_MAIN__*/
 	{
 		IMateriaSource* src = new MateriaSource();
@@ -34,6 +42,6 @@ int main(void)
 		delete bob;
 		delete me;
 		delete src;
-		return (0);
 	}
+	return (0);
 }

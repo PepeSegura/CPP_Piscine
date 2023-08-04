@@ -6,13 +6,14 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/02 23:38:20 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/04 18:18:40 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 # include <iostream>
+# include "Debug.hpp"
 
 class AMateria;
 

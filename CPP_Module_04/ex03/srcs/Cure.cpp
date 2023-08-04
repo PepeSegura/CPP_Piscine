@@ -6,33 +6,31 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/02 23:20:06 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/04 18:30:49 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-#include "Cure.hpp"
-
 Cure:: Cure() : AMateria("cure")
 {
-    std::cout << "Cure: Default constructor called." << std::endl;
+	PRINT_DEBUG("Cure: Default constructor called.");
 }
 
 Cure:: Cure(const Cure& f) : AMateria("cure")
 {
-    std::cout << "Cure: Copy constructor called." << std::endl;
+	PRINT_DEBUG("Cure: Copy constructor called.");
     *this = f;
 }
 
 Cure:: ~Cure()
 {
-    std::cout << "Cure: Destructor called." << std::endl;
+	PRINT_DEBUG("Cure: Destructor called.");
 }
 
 Cure& Cure:: operator=(const Cure& f)
 {
-    std::cout << "Cure: Asignation operand called." << std::endl;
+	PRINT_DEBUG("Cure: Asignation operand called.");
     if (this != &f)
 		*this = f;
     return (*this);

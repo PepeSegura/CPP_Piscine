@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/03 00:35:35 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/04 18:34:11 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 MateriaSource:: MateriaSource()
 {
-    std::cout << "MateriaSource: Default constructor called." << std::endl;
+	PRINT_DEBUG("MateriaSource: Default constructor called.");
     for (int i = 0; i < 4; i++)
         _materias[i] = NULL;
 }
 
 MateriaSource:: MateriaSource(const MateriaSource& f)
 {
-    std::cout << "MateriaSource: Copy constructor called." << std::endl;
+	PRINT_DEBUG("MateriaSource: Copy constructor called.");
     for (int i = 0; i < 4; i++)
         _materias[i] = f._materias[i];
 }
 
 MateriaSource:: ~MateriaSource()
 {
-    std::cout << "MateriaSource: Destructor called." << std::endl;
+	PRINT_DEBUG("MateriaSource: Destructor called.");
 }
 
 MateriaSource& MateriaSource:: operator=(const MateriaSource& f)
 {
-    std::cout << "MateriaSource: Asignation operand called." << std::endl;
+	PRINT_DEBUG("MateriaSource: Asignation operand called.");
     for (int i = 0; i < 4; i++)
         _materias[i] = f._materias[i];
     return (*this);
@@ -46,7 +46,8 @@ void MateriaSource:: learnMateria(AMateria* type)
         if (_materias[i] == NULL)
         {
             _materias[i] = type;
-            std::cout << "New materia [" << type->getType() << "] learned and equiped on slot " << i << std::endl;
+            std::cout 	<< "New materia [" << type->getType() 
+						<< "] learned and equiped on slot " << i << std::endl;
             break ;
         }
         if (i == 4)
@@ -66,6 +67,6 @@ AMateria* MateriaSource:: createMateria(std::string const &type)
             return (new_materia);
         }
     }
-	std::cout << "Error: Materia [" << type << "] was not found." << std::endl;
+	std::cerr << "Error: Materia [" << type << "] was not found." << std::endl;
 	return (NULL);
 }
