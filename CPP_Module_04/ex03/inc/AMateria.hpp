@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/04 18:26:46 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/07 21:50:51 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,15 @@
 class AMateria
 {
     public:
-        AMateria();
+        // AMateria();
         AMateria(std::string const & type);
-        AMateria(const AMateria &f);
         virtual ~AMateria();
-        AMateria& operator=(const AMateria &f);
+        // AMateria(const AMateria &f);
+        // AMateria& operator=(const AMateria &f);
 
-        std::string const & getType() const;
-
-        virtual AMateria* clone() const = 0;
-        virtual void use(ICharacter& target);
+        std::string const       &getType() const;
+        virtual AMateria        *clone() const = 0;
+        virtual void            use(ICharacter& target) = 0;
 
     protected:
         std::string	_type;
