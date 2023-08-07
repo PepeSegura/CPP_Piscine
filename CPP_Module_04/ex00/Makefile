@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/07/29 15:30:13 by psegura-         ###   ########.fr        #
+#    Updated: 2023/08/07 17:00:03 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ DEPS = $(OBJS:%.o=%.d)
 
 CXX = c++
 
-CXXFLAGS =	-Wall -Wextra -Werror -Wshadow -g3 #-fsanitize=address
+CXXFLAGS =	-Wall -Wextra -Werror -Wshadow
 CXXFLAGS +=	-std=c++98
 CXXFLAGS +=	-I inc
 CPPFLAGS = -MMD
@@ -40,6 +40,9 @@ objs:
 objs/%.o: %.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
+debug:: CXXFLAGS += -D DEBUG -g3 -fsanitize=address,leak
+debug:: re
+
 all: $(NAME)
 
 clean:
@@ -48,7 +51,8 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 
-re: fclean all
+re:: fclean
+re:: all
 
 -include $(DEPS)
 

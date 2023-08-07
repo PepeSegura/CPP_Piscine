@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/20 16:27:43 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/07 17:14:44 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 Dog:: Dog()
 {
-    std::cout << "Dog: Default constructor called." << std::endl;
+    PRINT_DEBUG("Dog: Default constructor called.");
 	_type = "Dog";
 }
 
 Dog:: Dog(const Dog& f) : Animal(f)
 {
-    std::cout << "Dog: Copy constructor called." << std::endl;
+    PRINT_DEBUG("Dog: Copy constructor called.");
     *this = f;
 }
 
 Dog:: ~Dog()
 {
-    std::cout << "Dog: Destructor called." << std::endl;
+    PRINT_DEBUG("Dog: Destructor called.");
 }
 
 Dog& Dog:: operator=(const Dog& f)
 {
-    std::cout << "Asignation operand called." << std::endl;
+    PRINT_DEBUG("Dog: Asignation operand called.");
     if (this != &f)
 		*this = f;
     return (*this);

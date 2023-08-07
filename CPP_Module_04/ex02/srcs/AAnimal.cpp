@@ -12,48 +12,31 @@
 
 #include "AAnimal.hpp"
 
-bool AAnimal:: printMessages = true;
-
 AAnimal:: AAnimal()
 {
-    if (printMessages)
-    {
-        std::cout << "AAnimal: Default constructor called." << std::endl;
-    }
+    PRINT_DEBUG("AAnimal: Default constructor called.");
 	_type = "Unsetted";
 }
 
 AAnimal:: AAnimal(std::string type) : _type(type)
 {
-    if (printMessages)
-    {
-        std::cout << "AAnimal with type setter constructor called." << std::endl;
-    }
+    PRINT_DEBUG("AAnimal: Type setter constructor called.");
 }
 
 AAnimal:: AAnimal(const AAnimal& f)
 {
-    if (printMessages)
-    {
-        std::cout << "Copy constructor called." << std::endl;
-    }
+    PRINT_DEBUG("AAnimal: Copy constructor called.");
     *this = f;
 }
 
 AAnimal:: ~AAnimal()
 {
-    if (printMessages)
-    {
-       std::cout << "AAnimal: Destructor called." << std::endl;
-    }
+    PRINT_DEBUG("AAnimal: Destructor called.");
 }
 
 AAnimal& AAnimal:: operator=(const AAnimal& f)
 {
-    if (printMessages)
-    {
-        std::cout << "AAnimal: Asignation operand called." << std::endl;
-    }
+    PRINT_DEBUG("AAnimal: Asignation operand called.");
     if (this != &f)
 		_type = f._type;
     return (*this);

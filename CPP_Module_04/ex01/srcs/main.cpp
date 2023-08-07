@@ -6,10 +6,11 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 12:02:13 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/04 17:57:59 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/07 17:15:17 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 
@@ -19,7 +20,6 @@ int	main(void)
 {
 	{
 		std::cout << "__MAIN_OBJECTS__" << std::endl;
-		Animal:: printMessages = false;
 	
 		Animal* zoo[ZOO_SIZE];
 	
@@ -40,7 +40,6 @@ int	main(void)
 	}
 	{
 		std::cout << "__TEST_IDEAS_&_DEEP_COPY__" << std::endl;
-		// Animal:: printMessages = true;
 		Cat missy;
 	
 		missy.catSetIdea(0, "Maybe im a cat.");
@@ -54,7 +53,6 @@ int	main(void)
 	}
 	{
 		std::cout << "\n__TEST_IDEAS_&_DEEP_COPY__V2__" << std::endl;
-		Animal:: printMessages = false;
 
 		Dog outside;
 
@@ -66,7 +64,6 @@ int	main(void)
 	}
 	{	
 		std::cout << "\n__SUBJECT_MAIN__" << std::endl;
-		Animal:: printMessages = true;
 		const Animal* j = new Dog();
 		const Animal* i = new Cat();
 	

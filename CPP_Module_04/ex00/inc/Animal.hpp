@@ -6,13 +6,17 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/20 16:31:46 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/07 17:07:04 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
+
 # include <iostream>
+# include "Debug.hpp"
 
 class Animal
 {
@@ -29,3 +33,5 @@ class Animal
 		std::string	_type;
 
 };
+
+#endif // ANIMAL_HPP

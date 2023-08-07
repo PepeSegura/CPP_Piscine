@@ -6,10 +6,11 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 12:02:13 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/31 17:56:08 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/07 17:14:57 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongCat.hpp"
@@ -20,7 +21,7 @@ void leaks(void)
 }
 int	main(void)
 {
-	atexit(leaks);
+	// atexit(leaks);
 	std::cout << "__MAIN_OBJECTS__" << std::endl;
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();

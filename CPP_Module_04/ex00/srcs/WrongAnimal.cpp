@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/20 16:53:06 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:57:20 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 WrongAnimal:: WrongAnimal()
 {
-    std::cout << "WrongAnimal: Default constructor called." << std::endl;
+    PRINT_DEBUG("WrongAnimal: Default constructor called.");
 	_type = "Unsetted";
 }
 
 WrongAnimal:: WrongAnimal(std::string type) : _type(type)
 {
-    std::cout << "WrongAnimal with type setter constructor called." << std::endl;
+    PRINT_DEBUG("WrongAnimal: Type setter constructor called.");
 }
 
 WrongAnimal:: WrongAnimal(const WrongAnimal& f)
 {
-    std::cout << "Copy constructor called." << std::endl;
+    PRINT_DEBUG("WrongAnimal: Copy constructor called.");
     *this = f;
 }
 
 WrongAnimal:: ~WrongAnimal()
 {
-    std::cout << "WrongAnimal: Destructor called." << std::endl;
+    PRINT_DEBUG("WrongAnimal: Destructor called.");
 }
 
 WrongAnimal& WrongAnimal:: operator=(const WrongAnimal& f)
 {
-    std::cout << "Asignation operand called." << std::endl;
+    PRINT_DEBUG("WrongAnimal: Asignation operand called.");
     if (this != &f)
 		*this = f;
     return (*this);

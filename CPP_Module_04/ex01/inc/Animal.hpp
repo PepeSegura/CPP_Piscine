@@ -6,13 +6,14 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/04 18:06:36 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/07 15:09:00 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 # include <iostream>
+# include "Debug.hpp"
 
 class Animal
 {
@@ -24,7 +25,6 @@ class Animal
         Animal&	operator=(const Animal &f);
 		const	std::string	getType()	const;
 		virtual void		makeSound() const;
-        static bool         printMessages;
 
 	protected:
 		std::string	_type;

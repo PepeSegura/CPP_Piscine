@@ -13,6 +13,7 @@
 #pragma once
 
 # include <iostream>
+# include "Debug.hpp"
 
 class AAnimal
 {
@@ -24,7 +25,6 @@ class AAnimal
         AAnimal&	operator=(const AAnimal &f);
 		const	std::string	getType()	const;
 		virtual void		makeSound() const = 0;
-        static bool         printMessages;
 
 	protected:
 		std::string	_type;

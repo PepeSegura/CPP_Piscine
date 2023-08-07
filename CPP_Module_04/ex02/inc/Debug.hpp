@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Debug.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/07 17:08:15 by psegura-         ###   ########.fr       */
+/*   Created: 2023/08/02 22:26:09 by psegura-          #+#    #+#             */
+/*   Updated: 2023/08/04 18:06:16 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#ifndef DOG_HPP
-# define DOG_HPP
-
-# include "Animal.hpp"
-
-class Dog : public Animal
-{
-    public:
-        Dog();
-        Dog(const Dog &f);
-        ~Dog();
-        Dog& operator=(const Dog &f);
-		virtual void makeSound() const;
-};
-
-#endif
+# ifdef DEBUG
+#	define PRINT_DEBUG(a) std::cout << a << "\n";
+# else
+#	define PRINT_DEBUG(a)
+# endif

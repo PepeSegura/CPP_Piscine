@@ -6,54 +6,37 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/04 18:07:59 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:31:04 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-bool Animal:: printMessages = true;
-
 Animal:: Animal()
 {
-    if (printMessages)
-    {
-        std::cout << "Animal: Default constructor called." << std::endl;
-    }
+    PRINT_DEBUG("Animal: Default constructor called.");
 	_type = "Unsetted";
 }
 
 Animal:: Animal(std::string type) : _type(type)
 {
-    if (printMessages)
-    {
-        std::cout << "Animal with type setter constructor called." << std::endl;
-    }
+    PRINT_DEBUG("Animal with type setter constructor called.");
 }
 
 Animal:: Animal(const Animal& f)
 {
-    if (printMessages)
-    {
-        std::cout << "Copy constructor called." << std::endl;
-    }
+    PRINT_DEBUG("Copy constructor called.");
     *this = f;
 }
 
 Animal:: ~Animal()
 {
-    if (printMessages)
-    {
-       std::cout << "Animal: Destructor called." << std::endl;
-    }
+    PRINT_DEBUG("Animal: Destructor called.");
 }
 
 Animal& Animal:: operator=(const Animal& f)
 {
-    if (printMessages)
-    {
-        std::cout << "Animal: Asignation operand called." << std::endl;
-    }
+    PRINT_DEBUG("Animal: Asignation operand called.");
     if (this != &f)
 		_type = f._type;
     return (*this);

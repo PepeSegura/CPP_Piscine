@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:45:23 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/31 18:15:46 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:34:41 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,12 @@
 
 Brain:: Brain()
 {
-	if (Animal:: printMessages)
-	{
-    	std::cout << "Brain: Default constructor called." << std::endl;
-	}
+	PRINT_DEBUG("Brain: Default constructor called.");
 }
 
 Brain:: Brain(const Brain& f)
 {
-	if (Animal:: printMessages)
-	{
-    	std::cout << "Brain: Copy constructor called." << std::endl;
-	}
+	PRINT_DEBUG("Brain: Copy constructor called.");
     for (int i = 0; i < 100; i++)
             ideas[i] = f.ideas[i];
     *this = f;
@@ -33,18 +27,12 @@ Brain:: Brain(const Brain& f)
 
 Brain:: ~Brain()
 {
-	if (Animal:: printMessages)
-	{
-    	std::cout << "Brain: Destructor called." << std::endl;
-	}
+	PRINT_DEBUG("Brain: Destructor called.");
 }
 
 Brain& Brain:: operator=(const Brain& f)
 {
-	if (Animal:: printMessages)
-	{
-    	std::cout << "Brain: Asignation operand called." << std::endl;
-	}
+	PRINT_DEBUG("Brain: Asignation operand called.");
     if (this != &f)
     {
         for (int i = 0; i < 100; i++)

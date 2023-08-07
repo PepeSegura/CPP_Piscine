@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/23 15:36:09 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/07 15:06:25 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,27 @@
 
 Cat:: Cat()
 {
-	if (printMessages)
-	{
-    	std::cout << "Cat: Default constructor called." << std::endl;
-	}
+	PRINT_DEBUG("Cat: Default constructor called.");
     brain = new Brain();
 	_type = "Cat";
 }
 
 Cat:: Cat(const Cat& f) : AAnimal(f)
 {
-	if (printMessages)
-	{
-    	std::cout << "Cat: Copy constructor called." << std::endl;
-	}
+	PRINT_DEBUG("Cat: Copy constructor called.");
     brain = NULL;
     *this = f;
 }
 
 Cat:: ~Cat()
 {
-	if (printMessages)
-	{
-    	std::cout << "Cat: Destructor called." << std::endl;
-	}
+	PRINT_DEBUG("Cat: Destructor called.");
     delete brain;
 }
 
 Cat& Cat:: operator=(const Cat& f)
 {
-	if (printMessages)
-	{
-    	std::cout << "Cat: Asignation operand called." << std::endl;
-	}
+	PRINT_DEBUG("Cat: Asignation operand called.");
     if (this != &f)
     {
         AAnimal::operator=(f);

@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/08/04 18:16:23 by psegura-         ###   ########.fr        #
+#    Updated: 2023/08/07 14:54:27 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,8 @@ objs:
 objs/%.o: %.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
-debug: CXXFLAGS += -D DEBUG -g3 -fsanitize=address,leak
-debug: re
+debug:: CXXFLAGS += -D DEBUG -g3 -fsanitize=address,leak
+debug:: re
 
 all: $(NAME)
 

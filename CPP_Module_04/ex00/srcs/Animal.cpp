@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/19 22:12:14 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/07 16:48:10 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 Animal:: Animal()
 {
-    std::cout << "Animal: Default constructor called." << std::endl;
+    PRINT_DEBUG("Animal: Default constructor called.");
 	_type = "Unsetted";
 }
 
 Animal:: Animal(std::string type) : _type(type)
 {
-    std::cout << "Animal with type setter constructor called." << std::endl;
+    PRINT_DEBUG("Animal with type setter constructor called.");
 }
 
 Animal:: Animal(const Animal& f)
 {
-    std::cout << "Copy constructor called." << std::endl;
+    PRINT_DEBUG("Animal: Copy constructor called.");
     *this = f;
 }
 
 Animal:: ~Animal()
 {
-    std::cout << "Animal: Destructor called." << std::endl;
+    PRINT_DEBUG("Animal: Destructor called.");
 }
 
 Animal& Animal:: operator=(const Animal& f)
 {
-    std::cout << "Asignation operand called." << std::endl;
+    PRINT_DEBUG("Animal: Asignation operand called.");
     if (this != &f)
 		*this = f;
     return (*this);

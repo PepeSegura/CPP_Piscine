@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 12:02:13 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/31 18:31:26 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/07 15:04:49 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 int	main(void)
 {
 	{
-		AAnimal::printMessages = true;
 		std::cout << "__CREATE_DOGS__" << std::endl;
 		Dog	d_heap;
 		Dog	*d_stack = new Dog();
