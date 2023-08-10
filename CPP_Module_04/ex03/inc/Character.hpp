@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/07 21:58:56 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/10 19:47:49 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,5 @@ class Character : public ICharacter
         std::string     _name;
         AMateria        *_inventory[4];
         int             _equiped;
+
 };

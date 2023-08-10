@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 15:59:29 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/07 22:40:11 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/10 20:01:08 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,31 +25,51 @@ void fleaks(void)
 int main(void)
 {
 	// atexit(&fleaks);
+
 	/*__SUBJECT_MAIN__*/
-	{
-		IMateriaSource* src = new MateriaSource();
+	std::cout << "Creating all the different types of materias for the game" << std::endl;
+	IMateriaSource* game = new MateriaSource();
+	game->learnMateria(new Ice());
+	game->learnMateria(new Cure());
+	game->learnMateria(new Ice());
+	game->learnMateria(new Cure());
+	game->learnMateria(new Ice());
+	game->learnMateria(new Cure());
 
-		src->learnMateria(new Ice());
-		src->learnMateria(new Cure());
+	std::cout << "Creating player: [pepe]" << std::endl;
+	ICharacter* player = new Character("pepe");
+	AMateria* materia;
 
-		ICharacter* me = new Character("me");
-		AMateria* tmp;
+	materia = game->createMateria("ice");
+	player->equip(materia);
+	materia = game->createMateria("invalid");
+	player->equip(materia);
+	materia = game->createMateria("");
+	player->equip(materia);
+	materia = game->createMateria("ice");
+	player->equip(materia);
+	materia = game->createMateria("cure");
+	player->equip(materia);
+	materia = game->createMateria("cure");
+	player->equip(materia);
+	materia = game->createMateria("cure");
+	player->equip(materia);
+	materia = game->createMateria("cure");
+	player->equip(materia);
 
-		tmp = src->createMateria("ice");
-		me->equip(tmp);
-		tmp = src->createMateria("cure");
-		me->equip(tmp);
+	
+	std::cout << "Creating enemy: [bob]" << std::endl;
+	ICharacter* bob = new Character("bob");
 
-		ICharacter* bob = new Character("bob");
+	std::cout << "Pepe will use 2 spells on Bob" << std::endl;
+	player->use(1, *bob);
+	player->use(1, *bob);
+	player->use(0, *bob);
+	player->use(0, *bob);
 
-		me->use(0, *bob);
-		me->use(1, *bob);
-		me->use(1, *bob);
+	delete bob;
+	delete player;
+	delete game;
 
-
-		delete bob;
-		delete me;
-		delete src;
-	}
 	return (0);
 }

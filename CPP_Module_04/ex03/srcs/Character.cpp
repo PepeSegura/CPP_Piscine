@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/07 22:56:09 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/10 20:02:28 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ Character:: Character(const Character& f)
 Character:: ~Character()
 {
 	PRINT_DEBUG("Character: Destructor called.");
+	for (int i = 0; i < 4; i++)
+	{
+		if (_inventory[i])
+			delete _inventory[i];
+	}
 }
 
 Character& Character:: operator=(const Character& f)
@@ -44,7 +49,9 @@ Character& Character:: operator=(const Character& f)
     for (int i = 0; i < 4; i++)
     {
         if (_inventory[i])
-            delete _inventory[i];
+		{
+            // delete _inventory[i];
+		}
         _inventory[i] = f._inventory[i];
         if (_inventory[i])
             _equiped++;
@@ -60,14 +67,21 @@ std::string const & Character:: getName() const
 
 void Character:: equip(AMateria* m)
 {
+	if (!m)
+	{
+		return ;
+	}
     if (_equiped < 4)
     {
-        _inventory[_equiped] = m;
+        _inventory[_equiped] = m->clone();
         std::cout << m->getType() << " equipped on " << _name << "'s slot " << _equiped << std::endl;
         _equiped++;
     }
     else
+	{
         std::cout << "Couldn't equip the new materia: " << _name << "'s inventory is full!" << std::endl;
+	}
+	delete m;
 }
 
 void Character:: unequip(int idx)
@@ -78,12 +92,14 @@ void Character:: unequip(int idx)
         return ;
     }
     int i = idx + 1;
+	std::cout << "I will unequip Materia: " << _inventory[idx]->getType() << " in pos: " << idx << std::endl;
 
     for (; i < 4 && _inventory[i]; i++)
     {
-       _inventory[i - 1] =_inventory[i];
+    	_inventory[i - 1] =_inventory[i];
+    	_inventory[i] = NULL;
     }
-    _inventory[i] = NULL;
+	_equiped--;
 }
 
 void Character:: use(int idx, ICharacter& target)
@@ -99,5 +115,6 @@ void Character:: use(int idx, ICharacter& target)
         return ;
     }
     _inventory[idx]->use(target);
-	unequip(idx);
+	delete _inventory[idx];
+	_inventory[idx] = NULL;
 }

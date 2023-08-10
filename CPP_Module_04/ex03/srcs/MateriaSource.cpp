@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/07 22:33:14 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/10 16:46:30 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ MateriaSource& MateriaSource:: operator=(const MateriaSource& f)
 void MateriaSource:: learnMateria(AMateria* type)
 {
     if (_learned >= 4)
+	{
 		std::cout << "Can't learn any more materias" << std::endl;
+		delete type;
+	}
 	else
 	{
 		_materias[_learned] = type;
@@ -65,14 +68,11 @@ void MateriaSource:: learnMateria(AMateria* type)
 
 AMateria* MateriaSource:: createMateria(std::string const &type)
 {
-	AMateria *new_materia = NULL;
-
     for (int i = 0; i < 4 && _materias[i]; i++)
 	{
 		if (type == _materias[i]->getType())
         {
-            new_materia = _materias[i]->clone();
-			return (new_materia);
+			return (_materias[i]->clone());
         }
 	}
 	std::cerr << "Error: Materia [" << type << "] was not found." << std::endl;
