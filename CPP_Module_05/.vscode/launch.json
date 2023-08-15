@@ -1,0 +1,26 @@
+	{
+	  "version": "0.2.0",
+	  "configurations": [
+	    {
+	      "name": "bureaucrat: Debugger",
+	      "type": "cppdbg",
+	      "request": "launch",
+		  "preLaunchTask": "make project",
+	      "program": "/home/pepe/CPP/CPP_Module_05/ex00/bureaucrat",
+	      "args": [],
+	      "stopAtEntry": false,
+	      "cwd": "${workspaceFolder}",
+	      "environment": [],
+	      "externalConsole": false,
+	      "MIMode": "gdb",
+	      "MIDebuggerPath": "/usr/bin/gdb",
+	      "setupCommands": [
+	        {
+	          "description": "Enable pretty-printing for gdb",
+	          "text": "-enable-pretty-printing",
+	          "ignoreFailures": true
+	        }
+	      ]
+	    }
+	  ]
+	}
