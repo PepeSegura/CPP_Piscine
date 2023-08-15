@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/08/07 14:54:27 by psegura-         ###   ########.fr        #
+#    Updated: 2023/08/15 15:17:25 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS = 							\
 OBJS = $(SRCS:%.cpp=objs/%.o)
 DEPS = $(OBJS:%.o=%.d)
 
-CXX = g++
+CXX = c++
 
 CXXFLAGS =	-Wall -Wextra -Werror -Wshadow
 CXXFLAGS +=	-std=c++98
