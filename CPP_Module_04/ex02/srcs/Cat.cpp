@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/07 15:06:25 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/15 17:22:42 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ Cat& Cat:: operator=(const Cat& f)
 	PRINT_DEBUG("Cat: Asignation operand called.");
     if (this != &f)
     {
-        AAnimal::operator=(f);
         _type = f._type;
         if (brain)
             delete brain;

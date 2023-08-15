@@ -6,11 +6,12 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/07 16:37:03 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/15 17:25:06 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
+#include "Brain.hpp"
 
 Dog:: Dog()
 {
@@ -37,7 +38,6 @@ Dog& Dog:: operator=(const Dog& f)
 	PRINT_DEBUG("Dog: Asignation operand called.");
     if (this != &f)
     {
-        Animal::operator=(f);
         _type = f._type;
         if (brain)
             delete brain;
