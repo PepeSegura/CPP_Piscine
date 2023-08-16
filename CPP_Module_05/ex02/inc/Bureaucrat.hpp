@@ -1,67 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/16 18:24:32 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/16 23:07:26 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 # include <iostream>
-# include "Bureaucrat.hpp"
 
 # define MAX_GRADE 1
 # define MIN_GRADE 150
 
-class Bureaucrat;
+class AForm;
 
-class Form
+class Bureaucrat
 {
     public:
-        Form();
-        Form(const Form &f);
-        Form(const std::string &name, int gradeToSign, int gradeToExecute);
-        ~Form();
-        Form& operator=(const Form &f);
+        Bureaucrat();
+        Bureaucrat(std::string name, int grade);
+        Bureaucrat(const Bureaucrat &f);
+        ~Bureaucrat();
+        Bureaucrat& operator=(const Bureaucrat &f);
 
         std::string const       getName() const;
-        bool                    isSigned() const;
-        int                     getGradeToSign() const;
-        int                     getGradeToExecute() const;
-        void                    beSigned(Bureaucrat b);
+        int                     getGrade() const;
+        void                    incrementGrade();
+        void                    decrementGrade();
+        void                    signForm(AForm & form);
+        void                    executeForm(AForm const &form);
 
         class GradeTooHighException : public std::exception
         {
             public:
-                GradeTooHighException(int flag) : _flag(flag) {}
-
-                const char *what() const throw();
-
-            private:
-                int _flag;
+                const char *what() const throw()
+                {
+                    return ("Bureaucrat: TooHighException");
+                }
         };
         class GradeTooLowException : public std::exception
         {
             public:
-                GradeTooLowException(int flag) : _flag(flag) {}
-
-                const char *what() const throw();
-
-            private:
-                int _flag;
+                const char *what() const throw()
+                {
+                    return ("Bureaucrat: TooLowException");
+                }
         };
 
     private:
         const std::string   _name;
-        bool                _signed;
-        const int           _gradeToSign;
-        const int           _gradeToExecute;
+        int                 _grade;
 
 };
 
-std::ostream& operator<<(std::ostream &out, Form const &f);
+std::ostream& operator<<(std::ostream &out, Bureaucrat const &f);

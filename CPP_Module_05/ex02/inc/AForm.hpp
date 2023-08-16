@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/16 18:24:32 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/16 23:16:37 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-# include <iostream>
 # include "Bureaucrat.hpp"
 
 # define MAX_GRADE 1
 # define MIN_GRADE 150
 
-class Bureaucrat;
-
-class Form
+class AForm
 {
     public:
-        Form();
-        Form(const Form &f);
-        Form(const std::string &name, int gradeToSign, int gradeToExecute);
-        ~Form();
-        Form& operator=(const Form &f);
+        AForm();
+        AForm(const AForm &f);
+        AForm(const std::string &name, int gradeToSign, int gradeToExecute);
+        virtual ~AForm();
+        AForm& operator=(const AForm &f);
 
         std::string const       getName() const;
         bool                    isSigned() const;
         int                     getGradeToSign() const;
         int                     getGradeToExecute() const;
         void                    beSigned(Bureaucrat b);
+        virtual void            execute(Bureaucrat const &executor) = 0;
 
         class GradeTooHighException : public std::exception
         {
@@ -64,4 +62,4 @@ class Form
 
 };
 
-std::ostream& operator<<(std::ostream &out, Form const &f);
+std::ostream& operator<<(std::ostream &out, AForm const &f);

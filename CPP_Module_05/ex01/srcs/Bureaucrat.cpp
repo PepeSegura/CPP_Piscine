@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/08 02:03:08 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/16 18:30:19 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ Bureaucrat:: ~Bureaucrat()
 Bureaucrat& Bureaucrat:: operator=(const Bureaucrat& f)
 {
     PRINT_DEBUG("Bureaucrat: Asignation operand called.");
-    if (MIN_GRADE > f._grade)
-        throw (Bureaucrat:: GradeTooLowException());
-    if (MAX_GRADE < f._grade)
+    if (MAX_GRADE > f._grade)
         throw (Bureaucrat:: GradeTooHighException());
+    if (MIN_GRADE < f._grade)
+        throw (Bureaucrat:: GradeTooLowException());
     _grade = f._grade;
     return (*this);
 }
@@ -63,37 +63,37 @@ int Bureaucrat:: getGrade() const
 
 std::ostream& operator<<(std::ostream &out, Bureaucrat const &f)
 {
-    out << f.getName() << ", bureaucrat grade " << f.getGrade() << ".";
+    out << "Name: " << f.getName() << "\tGrade: " << f.getGrade();
     return (out);
 }
 
 void Bureaucrat:: incrementGrade()
 {
-    _grade--;
-    if (MAX_GRADE > _grade)
+    if (MAX_GRADE > (_grade - 1))
         throw (Bureaucrat:: GradeTooHighException());
+    _grade--;
 }
 
 void Bureaucrat:: decrementGrade()
 {
-    _grade++;
-    if (MIN_GRADE < _grade)
+    if (MIN_GRADE < (_grade + 1))
         throw (Bureaucrat:: GradeTooLowException());
+    _grade++;
 }
 
 void Bureaucrat:: signForm(Form& form)
 {
     try
     {
-        if (MAX_GRADE > getGrade())
+        if (MAX_GRADE > _grade)
             throw (Bureaucrat:: GradeTooHighException());
-        if (MIN_GRADE < getGrade())
+        if (MIN_GRADE < _grade)
             throw (Bureaucrat:: GradeTooLowException());
         form.beSigned(*this);
         std::cout << _name << " signed form: [" <<  form.getName() << "]" << std::endl;
     }
     catch (const std::exception& e)
     {
-        std::cerr << getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+        std::cerr << getName() << " couldn't sign [" << form.getName() << "] because: " << e.what() << std::endl;
     }
 }
