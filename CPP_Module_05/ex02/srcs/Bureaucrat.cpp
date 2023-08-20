@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/16 22:26:15 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/21 01:28:13 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,15 @@ void Bureaucrat:: signForm(AForm& form)
 
 void Bureaucrat:: executeForm(AForm const &form)
 {
-	if (form.getGradeToExecute() > _grade)
-		throw (Bureaucrat:: GradeTooHighException());
 	if (form.getGradeToExecute() < _grade)
 		throw (Bureaucrat:: GradeTooLowException());
-	// form.execute(*this);
-	std::cout << getName() << " executes " << form.getName() << "." << std::endl;
+	try
+	{
+		form.execute(*this);
+		std::cout << getName() << ": executed " << form.getName() << std::endl;
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 }

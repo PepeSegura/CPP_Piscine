@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/16 23:12:46 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/21 01:30:55 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,27 @@ RobotomyRequestForm:: ~RobotomyRequestForm()
 RobotomyRequestForm& RobotomyRequestForm:: operator=(const RobotomyRequestForm& f)
 {
     PRINT_DEBUG("RobotomyRequestForm: Asignation operand called.");
-	*this = f;
+    if (this != &f)
+	    *this = f;
     return (*this);
+}
+
+int robotomize()
+{
+    struct timeval currentTime;
+    long long microseconds;
+
+    gettimeofday(&currentTime, NULL);
+    microseconds = currentTime.tv_sec * 1000000LL + currentTime.tv_usec;
+
+    return (microseconds % 2 == 0);
 }
 
 void RobotomyRequestForm:: execute(Bureaucrat const & executor) const
 {
-    (void)executor;
-    std::cout << "RobotomyRequestForm: Execute form." << std::endl;
+    std::cout << "🧰 Some drilling noises 🔨" << std::endl;
+    if (robotomize())
+        std::cout << _target << ": has been robotomized 🔨 by " << executor.getName() << std::endl;
+    else
+        throw (std::runtime_error("⚠️  Robotomy failed ⚠️"));
 }
