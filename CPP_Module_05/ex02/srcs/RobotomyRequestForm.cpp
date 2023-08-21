@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/16 23:12:46 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/19 20:44:06 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ RobotomyRequestForm:: ~RobotomyRequestForm()
 RobotomyRequestForm& RobotomyRequestForm:: operator=(const RobotomyRequestForm& f)
 {
     PRINT_DEBUG("RobotomyRequestForm: Asignation operand called.");
-	*this = f;
+	if (this != &f)
+		*this = f;
     return (*this);
 }
 

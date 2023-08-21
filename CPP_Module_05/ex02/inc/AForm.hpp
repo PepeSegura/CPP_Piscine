@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/16 23:16:37 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/19 20:34:35 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class AForm
         int                     getGradeToSign() const;
         int                     getGradeToExecute() const;
         void                    beSigned(Bureaucrat b);
-        virtual void            execute(Bureaucrat const &executor) = 0;
+        virtual void            execute(Bureaucrat const &executor) const = 0;
 
         class GradeTooHighException : public std::exception
         {
