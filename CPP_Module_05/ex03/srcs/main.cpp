@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 23:08:25 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/21 02:50:06 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/21 03:00:06 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int main(void)
 
 	try
 	{
-		presi = test_intern.makeForm("Presidential Pardon", "Trillian");
-		robotomy = test_intern.makeForm("robotomy", "Ford Prefect");
+		presi = test_intern.makeForm("Presidential Pardon", "Andres Manuel");
+		robotomy = test_intern.makeForm("robotomy", "c3po");
 		shrubbery = test_intern.makeForm("shrubbery creation", "forest");
 	}
 	catch(const std::exception& e)
