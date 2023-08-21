@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/21 16:10:47 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/21 01:03:17 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
+
+# include <iostream>
+# include <fstream>
 
 #pragma once
 
 # include "AForm.hpp"
 # include <sys/time.h>
 
-class RobotomyRequestForm : public AForm
+class ShrubberyCreationForm : public AForm
 {
     public:
-        RobotomyRequestForm();
-        RobotomyRequestForm(const std::string target);
-        RobotomyRequestForm(const RobotomyRequestForm &f);
-        ~RobotomyRequestForm();
-        RobotomyRequestForm& operator=(const RobotomyRequestForm &f);
+        ShrubberyCreationForm();
+        ShrubberyCreationForm(const std::string target);
+        ShrubberyCreationForm(const ShrubberyCreationForm &f);
+        ~ShrubberyCreationForm();
+        ShrubberyCreationForm& operator=(const ShrubberyCreationForm &f);
 
         virtual void            execute(Bureaucrat const &executor) const;
 

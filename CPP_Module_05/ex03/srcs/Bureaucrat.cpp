@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/21 01:28:13 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/21 02:49:10 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ void Bureaucrat:: signForm(AForm& form)
 	}
 }
 
+#include <cstdio>
+
 void Bureaucrat:: executeForm(AForm const &form)
 {
 	if (form.getGradeToExecute() < _grade)
@@ -105,10 +107,10 @@ void Bureaucrat:: executeForm(AForm const &form)
 	try
 	{
 		form.execute(*this);
-		std::cout << getName() << ": executed " << form.getName() << std::endl;
 	}
 	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	std::cout << getName() << ": executed " << form.getName() << std::endl;
 }

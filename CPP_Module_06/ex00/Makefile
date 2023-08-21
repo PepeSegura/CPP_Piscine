@@ -6,25 +6,21 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/08/21 16:11:04 by psegura-         ###   ########.fr        #
+#    Updated: 2023/08/21 03:23:10 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = shrubbery
+NAME = convert
 
-SRCS = 									\
-		srcs/main.cpp					\
-		srcs/Bureaucrat.cpp				\
-		srcs/AForm.cpp					\
-		srcs/RobotomyRequestForm.cpp	\
-		srcs/PresidentialPardonForm.cpp	\
-		srcs/ShrubberyCreationForm.cpp	\
+SRCS = 							\
+		srcs/main.cpp			\
+		srcs/DataTypes.cpp		\
 
 
 OBJS = $(SRCS:%.cpp=objs/%.o)
 DEPS = $(OBJS:%.o=%.d)
 
-CXX = g++
+CXX = c++
 
 CXXFLAGS =	-Wall -Wextra -Werror -Wshadow
 CXXFLAGS +=	-std=c++98
@@ -40,7 +36,7 @@ objs:
 objs/%.o: %.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
-debug:: CXXFLAGS += -D DEBUG -g3 -fsanitize=address,leak
+debug:: CXXFLAGS += -D DEBUG -g3 -fsanitize=address#,leak
 debug:: re
 
 all: $(NAME)

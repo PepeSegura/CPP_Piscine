@@ -6,11 +6,11 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/08/21 16:11:04 by psegura-         ###   ########.fr        #
+#    Updated: 2023/08/21 02:51:32 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = shrubbery
+NAME = intern
 
 SRCS = 									\
 		srcs/main.cpp					\
@@ -19,6 +19,7 @@ SRCS = 									\
 		srcs/RobotomyRequestForm.cpp	\
 		srcs/PresidentialPardonForm.cpp	\
 		srcs/ShrubberyCreationForm.cpp	\
+		srcs/Intern.cpp					\
 
 
 OBJS = $(SRCS:%.cpp=objs/%.o)
