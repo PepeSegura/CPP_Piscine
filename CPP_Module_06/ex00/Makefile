@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/08/21 03:23:10 by psegura-         ###   ########.fr        #
+#    Updated: 2023/08/24 12:40:03 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = convert
 SRCS = 							\
 		srcs/main.cpp			\
 		srcs/DataTypes.cpp		\
+		srcs/parser.cpp			\
 
 
 OBJS = $(SRCS:%.cpp=objs/%.o)

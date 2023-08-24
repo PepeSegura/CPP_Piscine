@@ -6,13 +6,14 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 23:40:48 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/21 03:42:06 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/24 18:02:55 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Debug.hpp"
 #include "DataTypes.hpp"
+#include "parser.h"
 
 int main(int argc, char **argv)
 {
@@ -22,8 +23,17 @@ int main(int argc, char **argv)
         return (1);
     }
     std::string str =  argv[1];
+	int			type = 0;
 
-    DataTypes hola(str);
-    std::cout << hola << std::endl;
-    return (0);    
+	try
+	{
+		type = check_input(str);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+    // DataTypes hola(str);
+    // std::cout << hola << std::endl;
+    return (0);
 }
