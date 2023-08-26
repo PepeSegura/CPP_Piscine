@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/08/25 04:53:40 by psegura-         ###   ########.fr        #
+#    Updated: 2023/08/25 16:58:39 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ objs/%.o: %.cpp
 debug:: CXXFLAGS += -D DEBUG -g3 -fsanitize=address#,leak
 debug:: re
 
-all: $(NAME)
+all: $(NAME) 
 
 clean:
 	@rm -rf objs

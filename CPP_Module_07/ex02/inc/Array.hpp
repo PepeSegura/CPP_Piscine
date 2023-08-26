@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 05:42:17 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/25 06:30:56 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/25 17:34:31 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 # include <iostream>
 
 template <typename T>
-class Array {
-public:
-    Array(T value) : _data(value) {}
-    T getData() { return _data; }
-
-private:
-    T _data;
+class Array
+{
+	public:
+	    Array(T value) : _data(value) {}
+	    T getData() { return _data; }
+	
+	private:
+	    T _data;
 };
 
 template <typename T>
