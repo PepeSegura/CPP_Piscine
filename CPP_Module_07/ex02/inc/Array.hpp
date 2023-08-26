@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 05:42:17 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/25 17:34:31 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/26 21:27:47 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,51 +18,20 @@ template <typename T>
 class Array
 {
 	public:
-	    Array(T value) : _data(value) {}
-	    T getData() { return _data; }
-	
+		Array(int size);
+		Array(const Array& f);
+		~Array();
+		Array& 		operator=(const Array& f);
+
+		int			size(void);
+		void		print(void);
+
+		const T&	operator[](int index) const;
+		T&			operator[](int index);
+
 	private:
-	    T _data;
+		T	*_array;
+		int	_size;
 };
 
-template <typename T>
-void    swap(T& a, T& b)
-{
-    T aux = a;
-    a = b;
-    b = aux;
-}
-
-template <typename T>
-T min(T a, T b)
-{
-    if (a < b)
-        return (a);
-    return (b);
-}
-
-template <typename T>
-T max(T a, T b)
-{
-    if (a > b)
-        return (a);
-    return (b);
-}
-
-template <typename T, typename Func>
-void    iter(T array[], int length, Func func)
-{
-    for (int i = 0; i < length; i++)
-    {
-        func(array[i]);
-    }
-}
-
-template <typename T>
-struct PrintData
-{
-    void operator()(T input) const
-    {
-        std::cout << input << std::endl;
-    }
-};
+# include "Array.tpp"
