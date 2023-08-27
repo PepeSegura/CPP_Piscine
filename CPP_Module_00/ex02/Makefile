@@ -3,29 +3,29 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
+#    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/07/06 23:49:08 by pepe             ###   ########.fr        #
+#    Updated: 2023/08/27 01:14:09 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = jobOfDreams
 
-SRCS = 						\
-		srcs/main.cpp		\
+SRCS = 							\
+		srcs/tests.cpp			\
+		srcs/Account.cpp		\
 
-INC =						\
-		inc/Contact.cpp		\
-		inc/PhoneBook.cpp	\
 
 OBJS = $(SRCS:%.cpp=objs/%.o)
+DEPS = $(OBJS:%.o=%.d)
 
 CXX = c++
 
-CXXFLAGS =	-Wall -Wextra -Werror
+CXXFLAGS =	-Wall -Wextra -Werror -Wshadow
 CXXFLAGS +=	-std=c++98
 CXXFLAGS +=	-I inc
+CPPFLAGS = -MMD
 
 $(NAME): objs $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
@@ -34,7 +34,10 @@ objs:
 	@mkdir -p	objs/srcs
 
 objs/%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+
+debug:: CXXFLAGS += -D DEBUG -g3 -fsanitize=address#,leak
+debug:: re
 
 all: $(NAME)
 
@@ -44,6 +47,9 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 
-re: fclean all
+re:: fclean
+re:: all
+
+-include $(DEPS)
 
 .PHONY: all clean fclean re
