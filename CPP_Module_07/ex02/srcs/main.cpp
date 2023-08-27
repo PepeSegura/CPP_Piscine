@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 23:40:48 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/26 21:29:29 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/27 18:56:45 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
+    numbers.print();
     delete [] mirror;
     return 0;
 }
