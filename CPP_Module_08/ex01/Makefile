@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/08/27 19:02:47 by psegura-         ###   ########.fr        #
+#    Updated: 2023/08/27 22:41:58 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = span
 
 SRCS = 							\
 		srcs/main.cpp			\
+		srcs/Span.cpp			\
 
 
 OBJS = $(SRCS:%.cpp=objs/%.o)
