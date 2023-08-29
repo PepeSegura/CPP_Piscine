@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/28 00:13:04 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/29 02:49:24 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,14 @@ Span:: Span() : _maxValues(0)
 	PRINT_DEBUG("Span: Default constructor called.");
 }
 
-Span:: Span(int maxValues) : _maxValues(maxValues)
+Span:: Span(unsigned int maxValues) : _maxValues(maxValues)
 {
 	PRINT_DEBUG("Span: Default constructor called.");
 }
 
-Span:: Span(const Span& f)
+Span:: Span(const Span& f) : _myVector(f._myVector), _maxValues(f._maxValues)
 {
 	PRINT_DEBUG("Span: Copy constructor called.");
-	*this = f;
 }
 
 Span:: ~Span()
@@ -41,7 +40,10 @@ Span& Span:: operator=(const Span& f)
 {
 	PRINT_DEBUG("Span: Asignation operand called.");
 	if (this != &f)
-		*this = f;
+	{
+		_myVector = f._myVector;
+		_maxValues = f._maxValues;
+	}
 	return (*this);
 }
 
@@ -56,34 +58,34 @@ void    Span:: addNumber(int value)
 
 void   Span:: addArray(int array[], size_t size)
 {
-    size_t remainingSpace = _maxValues - _myVector.size();
+	size_t remainingSpace = _maxValues - _myVector.size();
 
-    if (size > remainingSpace)
+	if (size > remainingSpace)
 	{
-        std::ostringstream oss;
-        oss << "Can't add more numbers. Only " << remainingSpace << " value(s) can be added.";
-        throw (std::runtime_error(oss.str()));
-    }
+		std::ostringstream oss;
+		oss << "Can't add more numbers. Only " << remainingSpace << " value(s) can be added.";
+		throw (std::runtime_error(oss.str()));
+	}
 
 	_myVector.insert(_myVector.end(), array, array + size);
 }
 
 void   Span:: addRange(int min, int max)
 {
-    size_t remainingSpace = _maxValues - _myVector.size();
-    size_t valuesToAdd = max - min + 1;
+	size_t remainingSpace = _maxValues - _myVector.size();
+	size_t valuesToAdd = max - min + 1;
 
-    if (valuesToAdd > remainingSpace)
+	if (valuesToAdd > remainingSpace)
 	{
-        std::ostringstream oss;
-        oss << "Can't add more numbers. Only " << remainingSpace << " value(s) can be added.";
-        throw (std::runtime_error(oss.str()));
-    }
+		std::ostringstream oss;
+		oss << "Can't add more numbers. Only " << remainingSpace << " value(s) can be added.";
+		throw (std::runtime_error(oss.str()));
+	}
 
 	for (int value = min; value <= max; value++)
 	{
-        _myVector.push_back(value);
-    }
+		_myVector.push_back(value);
+	}
 }
 
 int     Span:: shortestSpan(void)
@@ -91,16 +93,16 @@ int     Span:: shortestSpan(void)
 	if (_myVector.size() < 2)
 		throw (std::runtime_error("Can't find the shortestSpan."));
 
-    std::vector<int> sortedNumbers = _myVector;
-    std::sort(sortedNumbers.begin(), sortedNumbers.end());
+	std::vector<int> sortedNumbers = _myVector;
+	std::sort(sortedNumbers.begin(), sortedNumbers.end());
 
-    int minSpan = sortedNumbers[1] - sortedNumbers[0];
-    for (size_t i = 0; i < sortedNumbers.size() - 1; i++)
+	int minSpan = sortedNumbers[1] - sortedNumbers[0];
+	for (size_t i = 0; i < sortedNumbers.size() - 1; i++)
 	{
-        int span = sortedNumbers[i + 1] - sortedNumbers[i];
-        if (span < minSpan)
-            minSpan = span;
-    }
+		int span = sortedNumbers[i + 1] - sortedNumbers[i];
+		if (span < minSpan)
+			minSpan = span;
+	}
 	return (minSpan);
 }
 int     Span:: longestSpan(void)
@@ -123,7 +125,7 @@ void	Span:: print(void)
 	std::cout << "Values\n\t";
 	for (i = 0; i < _myVector.size() - 1; i++)
 	{
-        std::cout << _myVector[i] << " ";
-    }
+		std::cout << _myVector[i] << " ";
+	}
 	std::cout << _myVector[i] << std::endl;
 }

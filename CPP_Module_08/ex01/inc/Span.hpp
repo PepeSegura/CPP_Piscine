@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:08:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/28 00:13:14 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/29 01:49:09 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@
 
 class Span
 {
-    public:
-        Span();
-        Span(int value);
-        Span(const Span &f);
-        ~Span();
-        Span& operator=(const Span &f);
+	public:
+		Span();
+		Span(unsigned int value);
+		Span(const Span &f);
+		~Span();
+		Span& operator=(const Span &f);
 
-        void    addNumber(int value);
-        void    addArray(int array[], size_t size);
-        void    addRange(int min, int max);
-        int     shortestSpan(void);
-        int     longestSpan(void);
-        void    print(void);
+		void    addNumber(int value);
+		void    addArray(int array[], size_t size);
+		void    addRange(int min, int max);
+		int     shortestSpan(void);
+		int     longestSpan(void);
+		void    print(void);
 
-    private:
-        std::vector<int>    _myVector;
-        size_t              _maxValues;
+	private:
+		std::vector<int>    _myVector;
+		unsigned int        _maxValues;
 };

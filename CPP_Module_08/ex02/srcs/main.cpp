@@ -6,15 +6,16 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 00:24:48 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/28 02:25:32 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/29 02:51:24 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 
-int main()
+int main(void)
 {
     MutantStack<int> mstack;
+    mstack.push(5);
     mstack.push(17);
 
     std::cout << "Top:\t "    << mstack.top() << std::endl;
@@ -29,33 +30,26 @@ int main()
     mstack.push(9);
     mstack.push(10);
 
-    MutantStack<int>::iterator it = mstack.begin();
-    MutantStack<int>::iterator ite = mstack.end();
+    const MutantStack<int>& constMStack = mstack;
+    MutantStack<int>::const_iterator cit = constMStack.begin();
+    MutantStack<int>::const_iterator cite = constMStack.end();
 
-    std::cout << "Forward iterator" << std::endl;
-    while (it != ite)
+    std::cout << "Const Forward iterator" << std::endl;
+    while (cit != cite)
     {
-        std::cout << *it << std::endl;
-        ++it;
+        std::cout << *cit << std::endl;
+        ++cit;
     }
-    std::stack<int> s(mstack);
 
-    MutantStack<int> mstack2;
+    MutantStack<int>::const_reverse_iterator crit = constMStack.rbegin();
+    MutantStack<int>::const_reverse_iterator crite = constMStack.rend();
 
-    mstack2.push(6);
-    mstack2.push(7);
-    mstack2.push(8);
-    mstack2.push(9);
-    mstack2.push(10);
-
-    MutantStack<int>::reverse_iterator rit = mstack2.rbegin();
-    MutantStack<int>::reverse_iterator rite = mstack2.rend();
-
-    std::cout << "Reverse iterator" << std::endl;
-    while (rit != rite)
+    std::cout << "Const Reverse iterator" << std::endl;
+    while (crit != crite)
     {
-        std::cout << *rit << std::endl;
-        ++rit;
+        std::cout << *crit << std::endl;
+        ++crit;
     }    
+
     return 0;
 }
