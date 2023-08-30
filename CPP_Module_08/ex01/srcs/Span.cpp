@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 19:23:08 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/29 02:49:24 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/30 03:46:03 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,7 @@ void   Span:: addRange(int min, int max)
 	}
 
 	for (int value = min; value <= max; value++)
-	{
 		_myVector.push_back(value);
-	}
 }
 
 int     Span:: shortestSpan(void)
@@ -124,8 +122,6 @@ void	Span:: print(void)
 
 	std::cout << "Values\n\t";
 	for (i = 0; i < _myVector.size() - 1; i++)
-	{
 		std::cout << _myVector[i] << " ";
-	}
 	std::cout << _myVector[i] << std::endl;
 }

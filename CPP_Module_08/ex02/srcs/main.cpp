@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 00:24:48 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/29 02:51:24 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/30 03:49:36 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int main(void)
     while (cit != cite)
     {
         std::cout << *cit << std::endl;
-        ++cit;
+        cit++;
     }
 
     MutantStack<int>::const_reverse_iterator crit = constMStack.rbegin();
@@ -48,7 +48,7 @@ int main(void)
     while (crit != crite)
     {
         std::cout << *crit << std::endl;
-        ++crit;
+        crit++;
     }    
 
     return 0;

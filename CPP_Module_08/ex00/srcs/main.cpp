@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 21:13:01 by psegura-          #+#    #+#             */
-/*   Updated: 2023/08/27 22:32:59 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/08/30 03:10:10 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(void)
 	myVector.push_back(20);
 	myVector.push_back(30);
 	myVector.push_back(40);
-	myVector.push_back(30);
+	myVector.push_back(50);
 
 	std::list<int> myList;
 	myList.push_back(10);
@@ -32,30 +32,60 @@ int	main(void)
 	myList.push_back(40);
 	myList.push_back(50);
 
+	int	find = 10;
+	int	pos = 0;
+
     try
     {
-        int pos = easyFind(myVector, 30);
-        std::cout << "Value " << 30 << " found in pos [" << pos << "] in myVector." << std::endl;
+        pos = easyFind(myVector, find);
+        std::cout << "Value " << find << " found in pos [" << pos << "] in myVector." << std::endl;
 
-        int pos2 = easyFind(myVector, 2147483647);
-        std::cout << "Value " << 2147483647 << " found in pos [" << pos2 << "] in myVector." << std::endl;
+		find = 50;
+	
+        pos = easyFind(myVector, find);
+        std::cout << "Value " << find << " found in pos [" << pos << "] in myVector." << std::endl;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
 
-    try
+	std::cout << "-----------------------------------------------" << std::endl;
+	try
     {
-        int pos = easyFind(myList, 30);
-        std::cout << "Value " << 30 << " found in pos [" << pos << "] in myList." << std::endl;
+		find = 30;
 
-        int pos2 = easyFind(myList, 2147483647);
-        std::cout << "Value " << 2147483647 << " found in pos [" << pos2 << "] in myVector." << std::endl;
+        pos = easyFind(myList, find);
+        std::cout << "Value " << find << " found in pos [" << pos << "] in myList." << std::endl;
+
+		find = 50;
+
+        pos = easyFind(myList, find);
+        std::cout << "Value " << find << " found in pos [" << pos << "] in myVector." << std::endl;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
+
+	std::cout << "-----------------------------------------------" << std::endl;
+	try
+	{
+		find = -10;
+		pos = easyFind(myVector, find);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	try
+	{
+		find = 8923432;
+		pos = easyFind(myList, find);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	return (0);
 }
