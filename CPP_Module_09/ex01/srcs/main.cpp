@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 21:13:01 by psegura-          #+#    #+#             */
-/*   Updated: 2023/09/03 02:15:54 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/09/03 17:45:38 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ double	rpn(std::string& input)
 {
 	if (input.length() == 0)
 		throw (std::runtime_error("Error: Empty argument."));
+
 	std::stack<int>		stack;
 
 	std::istringstream	iss(input);
