@@ -6,11 +6,11 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 22:28:17 by psegura-          #+#    #+#             */
-/*   Updated: 2023/09/03 00:52:54 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/09/04 15:47:07 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "readCSV.hpp"
+#include "BitcoinExchange.hpp"
 
 float    find_date(std::map<int, float>& database, int toFind)
 {
@@ -19,7 +19,7 @@ float    find_date(std::map<int, float>& database, int toFind)
 	std::cout << "ToFind: [" << convertIntToDate(toFind);
 	
 	if (iter->first == toFind)
-		std::cout << "]  Key: [" << convertIntToDate(iter->first) << "]  F  " << "\t Value: " << iter->second;
+		std::cout << "]  F   Key: [" << convertIntToDate(iter->first) << "] " << "\t Value: " << iter->second;
 	else
 	{
 		if (iter == database.begin() && iter->first != toFind)
@@ -29,7 +29,7 @@ float    find_date(std::map<int, float>& database, int toFind)
 		}
 		if (iter != database.begin())
 			--iter;
-		std::cout << "]  Key: [" << convertIntToDate(iter->first) << "]  NF " << "\t Value: " << iter->second;
+		std::cout << "]  NF  Key: [" << convertIntToDate(iter->first) << "] " << "\t Value: " << iter->second;
 	}
 	return (iter->second);
 }
@@ -37,9 +37,9 @@ float    find_date(std::map<int, float>& database, int toFind)
 void	print_results(float ammount, float exchangeRate)
 {
 	if (ammount < 0)
-		std::cout << "\t Ammout: " << ammount << "\t Not a positive number." << std::endl;
+		std::cout << "\t Ammout: " << ammount << "\t Invalid Ammount: Not a positive number." << std::endl;
 	else if (ammount > 1000)
-		std::cout << "\t Ammout: " << ammount << "\t Number too big." << std::endl;
+		std::cout << "\t Ammout: " << ammount << "\t Invalid Ammount: Number too big." << std::endl;
 	else
 		std::cout << "\t Ammout: " << ammount << "\t Total Value: " << exchangeRate * ammount << std::endl;
 }
@@ -76,13 +76,15 @@ void	read_input(std::map<int, float>& database, std::ifstream& inputFile)
 		if (std::getline(iss, dateStr, '|') && iss >> ammount)
 		{
 			dateINT = parse_date(dateStr);
+			if (dateINT == -1)
+				continue ;
 			exchangeRate = find_date(database, dateINT);
 			if (exchangeRate != -1)
 				print_results(ammount, exchangeRate);
 			else
 				std::cout << std::endl;
 		}
-		else
+		else if (line.length() > 1)
 			std::cerr << "Error: bad input: " << line << std::endl;
 	}
 	inputFile.close();

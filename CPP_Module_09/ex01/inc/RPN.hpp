@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/27 21:13:01 by psegura-          #+#    #+#             */
-/*   Updated: 2023/09/04 16:16:57 by psegura-         ###   ########.fr       */
+/*   Created: 2023/09/04 16:15:04 by psegura-          #+#    #+#             */
+/*   Updated: 2023/09/04 16:16:25 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#include <stack>
+#include <iostream>
+#include <sstream>
+#include <cstdlib>
 
-int	main(int argc, char **argv)
-{
-	try
-	{
-		if (argc != 2)
-			throw (std::runtime_error("Error: You must introduce just 1 argument."));
-
-		std::string		input = argv[1];
-		double			result;
-
-		result = rpn(input);
-		std::cout << "Result: [" << result << "]" << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	return (0);
-}
+double	rpn(std::string& input);

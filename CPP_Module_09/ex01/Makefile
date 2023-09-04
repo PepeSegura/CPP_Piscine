@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/09/03 01:00:09 by psegura-         ###   ########.fr        #
+#    Updated: 2023/09/04 16:15:59 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = RPN
 
 SRCS = 							\
 		srcs/main.cpp			\
+		srcs/RPN.cpp			\
 
 
 OBJS = $(SRCS:%.cpp=objs/%.o)

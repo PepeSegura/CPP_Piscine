@@ -6,16 +6,16 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/09/02 22:47:05 by psegura-         ###   ########.fr        #
+#    Updated: 2023/09/04 15:48:14 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = btc
 
-SRCS = 							\
-		srcs/main.cpp			\
-		srcs/readCSV.cpp		\
-		srcs/readInput.cpp		\
+SRCS = 								\
+		srcs/main.cpp				\
+		srcs/BitcoinExchange.cpp	\
+		srcs/readInput.cpp			\
 
 
 OBJS = $(SRCS:%.cpp=objs/%.o)
