@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 21:13:01 by psegura-          #+#    #+#             */
-/*   Updated: 2023/09/05 16:03:41 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/09/05 19:10:40 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 bool	check_int(std::string& str)
 {
+	double dnbr = strtod(str.c_str(), NULL);
+
+	if (str.length() > 11 || dnbr < 0 || dnbr > 2147483647)
+		throw (std::runtime_error("Error: Invalid token: " + str));
 	if (str.length() == 1 && (str[0] == '-' || str[0] == '+'))
 		return (false);
 	for (size_t i = 0; i < str.length(); i++)
@@ -42,6 +46,8 @@ void    store_numbers(std::vector<int>& vector, char *str)
 		else
 			throw (std::runtime_error("Error: Invalid token: " + token));
 	}
+	if (vector.size() == 0)
+		throw (std::runtime_error("Error: Empty argument."));
 }
 
 int	main(int argc, char **argv)

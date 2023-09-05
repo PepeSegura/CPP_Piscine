@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:14:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/09/04 16:22:40 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/09/05 19:26:22 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ double	rpn(std::string& input)
 		else
 			throw (std::runtime_error("Error: Invalid token: " + token));
 	}
+	if (stack.size() == 0)
+		throw (std::runtime_error("Error: Empty argument."));
 	if (stack.size() > 1)
 		throw (std::runtime_error("Error: Invalid number of symbols."));
 	return (stack.top());
