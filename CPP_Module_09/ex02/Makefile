@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/09/03 20:50:11 by psegura-         ###   ########.fr        #
+#    Updated: 2023/09/05 13:20:30 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = PmergeMe
 
 SRCS = 								\
 		srcs/main.cpp				\
-		srcs/print_data.cpp			\
+		srcs/PmergeMe.cpp			\
 		srcs/sort_vector.cpp		\
 		srcs/sort_list.cpp			\
 

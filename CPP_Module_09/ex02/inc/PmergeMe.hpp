@@ -6,12 +6,13 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 17:47:45 by psegura-          #+#    #+#             */
-/*   Updated: 2023/09/03 20:35:25 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:23:05 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+#include <deque>
 #include <vector>
 #include <list>
 #include <algorithm>
@@ -50,9 +51,8 @@ bool isSorted(const T& container)
 }
 
 bool	check_int(std::string& str);
-void    fill_containers(std::vector<int>& vector, std::list<int>& list, char *str);
-void    print_data(std::vector<int>& vector, std::list<int>& list);
+void    pmergeme(std::vector<int>& vector);
 
-void	vector_mergeInsertionSort(std::vector<int>& vec, int left, int right);
+void	vector_mergeInsertionSort(std::vector<int>& vector);
 
 void	lst_mergeInsertionSort(std::list<int>& lst);

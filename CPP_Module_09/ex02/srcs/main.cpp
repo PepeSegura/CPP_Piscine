@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 21:13:01 by psegura-          #+#    #+#             */
-/*   Updated: 2023/09/03 21:46:55 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:03:41 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool	check_int(std::string& str)
 	return (true);
 }
 
-void    fill_containers(std::vector<int>& vector, std::list<int>& list, char *str)
+void    store_numbers(std::vector<int>& vector, char *str)
 {
 	std::istringstream	iss(str);
 	std::string			token;
@@ -38,7 +38,6 @@ void    fill_containers(std::vector<int>& vector, std::list<int>& list, char *st
 		{
 			nbr = atoi(token.c_str());
 			vector.push_back(nbr);
-			list.push_back(nbr);
 		}
 		else
 			throw (std::runtime_error("Error: Invalid token: " + token));
@@ -53,10 +52,9 @@ int	main(int argc, char **argv)
 			throw (std::runtime_error("Error: Introduce just one argument."));
 
 		std::vector<int>	vector;
-		std::list<int>		list;
 
-		fill_containers(vector, list, argv[1]);
-		print_data(vector, list);
+		store_numbers(vector, argv[1]);
+		pmergeme(vector);
 	}
 	catch(const std::exception& e)
 	{
