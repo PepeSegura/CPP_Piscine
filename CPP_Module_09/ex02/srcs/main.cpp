@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 21:13:01 by psegura-          #+#    #+#             */
-/*   Updated: 2023/09/05 19:10:40 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/09/09 20:36:24 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,22 @@ void    store_numbers(std::vector<int>& vector, char *str)
 		else
 			throw (std::runtime_error("Error: Invalid token: " + token));
 	}
-	if (vector.size() == 0)
-		throw (std::runtime_error("Error: Empty argument."));
+	
 }
 
 int	main(int argc, char **argv)
 {
 	try
 	{
-		if (argc != 2)
-			throw (std::runtime_error("Error: Introduce just one argument."));
+		if (argc < 2)
+			throw (std::runtime_error("Error: Introduce at least one argument."));
 
 		std::vector<int>	vector;
 
-		store_numbers(vector, argv[1]);
+		for (int i = 1; argv[i]; i++)
+			store_numbers(vector, argv[i]);
+		if (vector.size() == 0)
+			throw (std::runtime_error("Error: Empty argument."));
 		pmergeme(vector);
 	}
 	catch(const std::exception& e)
