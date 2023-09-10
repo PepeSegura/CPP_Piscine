@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 19:55:45 by pepe              #+#    #+#              #
-#    Updated: 2023/09/04 15:48:14 by psegura-         ###   ########.fr        #
+#    Updated: 2023/09/10 16:15:00 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRCS = 								\
 		srcs/main.cpp				\
 		srcs/BitcoinExchange.cpp	\
 		srcs/readInput.cpp			\
+		srcs/checkFloat.cpp			\
 
 
 OBJS = $(SRCS:%.cpp=objs/%.o)

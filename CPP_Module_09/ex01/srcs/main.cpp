@@ -6,11 +6,12 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 21:13:01 by psegura-          #+#    #+#             */
-/*   Updated: 2023/09/04 16:16:57 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/09/10 17:21:00 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
+#include <iomanip>
 
 int	main(int argc, char **argv)
 {

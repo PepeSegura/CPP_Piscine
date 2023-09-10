@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 15:46:42 by psegura-          #+#    #+#             */
-/*   Updated: 2023/09/04 15:46:43 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/09/10 15:52:20 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,15 @@
 #include <map>
 
 /*__UTILS__*/
-bool    	isValidDate(const std::tm& date);
-int         convertDateToInt(std::tm& date);
-int         parse_date(std::string& dateString);
-std::string	convertIntToDate(int date);
-void        checkHeader(const std::string& header, std::ifstream& inputFile);
+bool    	is_valid_date(const std::tm& date);
+int         convert_date_to_int(std::tm& date);
+int         parse_date(std::string& dateString, std::string file);
+float   	parse_ammount(std::string& ammountString, std::string file);
+bool	    check_float(std::string& str);
+
+std::string	convert_int_to_date(int date);
+
+void        check_header(const std::string& header, std::ifstream& inputFile);
 
 /*__DATA.csv__*/
 void    fill_database(std::map<int, float>& database, std::ifstream& dataFile);

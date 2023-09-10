@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:14:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/09/05 19:26:22 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/09/10 17:25:18 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ void	check_symbol(std::string str)
 
 bool	check_int(std::string& str)
 {
+	double dnbr = strtod(str.c_str(), NULL);
+
+	if (str.length() > 11 || dnbr < 0 || dnbr > 9)
+		throw (std::runtime_error("Error: Invalid token: " + str));
 	if (count_letter(str) > 0)
 		return (false);
 	check_symbol(str);
@@ -55,7 +59,7 @@ bool	check_int(std::string& str)
 	return (true);
 }
 
-void	choose_operator(std::stack<int>& stack, std::string& token)
+void	choose_operator(std::stack<float>& stack, std::string& token)
 {
 	if (stack.size() < 2)
 		throw (std::runtime_error("Error: Not enough numbers."));
@@ -64,9 +68,9 @@ void	choose_operator(std::stack<int>& stack, std::string& token)
     stack.pop();
     double left = stack.top();
     stack.pop();
-    if (token == "+") stack.push(left + right);
-    else if (token == "-") stack.push(left - right);
-    else if (token == "*") stack.push(left * right);
+    if (token == "+")		stack.push(left + right);
+    else if (token == "-")	stack.push(left - right);
+    else if (token == "*")	stack.push(left * right);
     else if (token == "/")
 	{
 		if (right == 0)
@@ -80,7 +84,7 @@ double	rpn(std::string& input)
 	if (input.length() == 0)
 		throw (std::runtime_error("Error: Empty argument."));
 
-	std::stack<int>		stack;
+	std::stack<float>	stack;
 
 	std::istringstream	iss(input);
 	std::string			token;
